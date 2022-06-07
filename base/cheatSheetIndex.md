@@ -6,7 +6,7 @@
 
 ### Introduction to RStudio
 
-* [rstudio-ide.pdf](https://github.com/rstudio/cheatsheets/raw/master/rstudio-ide.pdf)
+* [rstudio-ide.pdf](https://raw.githubusercontent.com/ucdavis-bioinformatics-training/2020-mRNA_Seq_Workshop/master/base/rstudio-ide.pdf)
 
 ### Introduction to R
 
