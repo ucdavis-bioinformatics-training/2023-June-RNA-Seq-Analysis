@@ -18,14 +18,19 @@
 
 ### Data Import/Transformation and Visualization
 
-* [data-import.pdf](https://github.com/rstudio/cheatsheets/raw/master/data-import.pdf)
+* [data-import.pdf](https://raw.githubusercontent.com/ucdavis-bioinformatics-training/2022-June-RNA-Seq-Analysis/master/base/data-import.pdf)
 
-* [data-transformation.pdf](https://github.com/rstudio/cheatsheets/raw/master/data-transformation.pdf)
+* [data-transformation.pdf](https://raw.githubusercontent.com/ucdavis-bioinformatics-training/2022-June-RNA-Seq-Analysis/master/base/data-transformation.pdf)
 
-* [data-visualization-2.1.pdf](https://github.com/rstudio/cheatsheets/raw/master/data-visualization-2.1.pdf)
+* [data-visualization-2.1.pdf](https://raw.githubusercontent.com/ucdavis-bioinformatics-training/2022-June-RNA-Seq-Analysis/master/base/data-visualization.pdf)
 
 ### R Markdown
 
 * [rmarkdown-reference.pdf](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf)
 
-* [rmarkdown-2.0.pdf](https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf)
+* [rmarkdown-2.0.pdf](https://raw.githubusercontent.com/ucdavis-bioinformatics-training/2022-June-RNA-Seq-Analysis/master/base/rmarkdown.pdf)
+
+### Many more R cheatsheets can be found at [this link](https://www.rstudio.com/resources/cheatsheets/)
+
+
+
