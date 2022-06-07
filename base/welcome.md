@@ -25,7 +25,7 @@ Our team offers custom bioinformatics services to academic and private organizat
    [helpdesk@genomecenter.ucdavis.edu](mailto:helpdesk@genomecenter.ucdavis.edu)
 
 
-### Workshop Materials
+## Workshop Materials
 
 Workshop materials are all posted on github, and publicly available
 
@@ -44,7 +44,7 @@ Workshop materials are all posted on github, and publicly available
 
 [https://ucdavis-bioinformatics-training.github.io/2022-June-RNA-Seq-Analysis/](https://ucdavis-bioinformatics-training.github.io/2022-June-RNA-Seq-Analysis/)
 
-### Workshop Goals
+## Workshop Goals
 
 * End-to-End understanding of RNAseq differential expression analysis
   * Discussions/lectures
@@ -58,7 +58,7 @@ Workshop materials are all posted on github, and publicly available
 
 * Goal is 30-40% lecture/discussion 60-70% hands-on
 
-### Computing Cluster
+## Computing Cluster
 
 A portion of  this course will be conducted on our servers and compute cluster (tadpole.genomecenter.ucdavis.edu).
 
