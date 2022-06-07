@@ -6,13 +6,13 @@
 
 ### Introduction to RStudio
 
-* [rstudio-ide.pdf](https://raw.githubusercontent.com/ucdavis-bioinformatics-training/2020-mRNA_Seq_Workshop/master/base/rstudio-ide.pdf)
+* [rstudio-ide.pdf](https://raw.githubusercontent.com/ucdavis-bioinformatics-training/2022-June-RNA-Seq-Analysis/master/base/rstudio-ide.pdf)
 
 ### Introduction to R
 
 * [Short-refcard.pdf](https://cran.r-project.org/doc/contrib/Short-refcard.pdf)
 
-* [base-r.pdf](http://github.com/rstudio/cheatsheets/raw/master/base-r.pdf)
+* [base-r.pdf](https://github.com/rstudio/cheatsheets/blob/main/base-r.pdf)
 
 * [advancedR.pdf](https://www.rstudio.com/wp-content/uploads/2016/02/advancedR.pdf)
 
