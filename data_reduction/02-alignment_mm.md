@@ -17,11 +17,11 @@ To catch up to where we are:
 ```
 mkdir -p /share/biocore/workshop/mrnaseq_workshop/$USER/rnaseq_example
 cd /share/biocore/workshop/mrnaseq_workshop/$USER
-wget https://raw.githubusercontent.com/ucdavis-bioinformatics-training/2021-September-RNA-Seq-Analysis/master/software_scripts/scripts/star_index.slurm
+wget https://raw.githubusercontent.com/ucdavis-bioinformatics-training/2022-June-RNA-Seq-Analysis/master/software_scripts/scripts/star_index.slurm
 mkdir References
-ln -s /share/biocore/workshops/2020_mRNAseq_July/References/star.overlap100.gencode.M25 References/
-cp -r /share/biocore/workshops/2020_mRNAseq_July/HTS_testing .
-cp -r /share/biocore/workshops/2020_mRNAseq_July/01-HTS_Preproc .
+ln -s /share/biocore/workshops/2022_mRNAseq_June/References/star.overlap100.gencode.M29 References/
+cp -r /share/biocore/workshops/2022_mRNAseq_June/HTS_testing .
+ln -s /share/biocore/workshops/2022_mRNAseq_June/01-HTS_Preproc .
 ```
 
 ---
@@ -180,17 +180,17 @@ What does stranded and unstranded mean? Which is better and why? [Stranded vs Un
     and let's run STAR (via srun) on the pair of streamed test files we created earlier:
 
     ```bash
-    srun --time=15:00:00 -n 8 --mem=32g --reservation=workshop --account=workshop --pty /bin/bash
+    srun --time=15:00:00 -n 8 --mem=32g --reservation=mrnaseq_workshop --account=workshop --pty /bin/bash
     ```
 
     Once you've been given an interactive session we can run STAR. You can ignore the two warnings/errors and you know your on a cluster node because your server will change. Here you see I'm on tadpole, then after the srun command is successful, I am now on drove-13.
 
-    <div class="output">msettles@tadpole:/share/workshop/msettles/rnaseq_example/> HTS_testing$ srun --time=15:00:00 -n 8 --mem=32g --reservation=workshop --account=workshop --pty /bin/bash
-    srun: job 29372920 queued and waiting for resources
-    srun: job 29372920 has been allocated resources
-    groups: cannot find name for group ID 2020
-    bash: /home/msettles/.bashrc: Permission denied
-    msettles@drove-13:/share/workshop/msettles/rnaseq_example/> HTS_testing$
+    <div class="output">jli@ganesh:/share/workshop/mrnaseq_workshop/jli/rnaseq_example/HTS_testing$ srun --time=15:00:00 -n 8 --mem=32g --reservation=mrnaseq_workshop --account=workshop --pty /bin/bash
+    srun: error: spank-auks: cred forwarding failed : auks api : connection failed
+    srun: job 49856359 queued and waiting for resources
+    srun: job 49856359 has been allocated resources
+    bash: /home/jli/.bashrc: Permission denied
+    jli@fleet-29:/share/workshop/mrnaseq_workshop/jli/rnaseq_example/HTS_testing$
     </div>
 
 1. Then run the star commands
@@ -198,11 +198,11 @@ What does stranded and unstranded mean? Which is better and why? [Stranded vs Un
     ```bash
     module load star
     STAR \
-    --runThreadN 8 \
-       --genomeDir ../References/star.overlap100.gencode.M25 \
+    --runThreadN 12 \
+       --genomeDir ../References/star.overlap100.gencode.M29 \
        --outSAMtype BAM SortedByCoordinate \
        --quantMode GeneCounts \
-       --outFileNamePrefix mouse_110_WT_C_R1_ \
+       --outFileNamePrefix mouse_110_WT_C_ \
        --readFilesCommand zcat \
        --readFilesIn mouse_110_WT_C_R1.fastq.gz mouse_110_WT_C_R2.fastq.gz
     ```
@@ -211,9 +211,9 @@ What does stranded and unstranded mean? Which is better and why? [Stranded vs Un
 
     Once finished please 'exit' the srun session. You'll know you were successful when your back on tadpole
 
-    <div class="output">msettles@drove-13:/share/workshop/msettles/rnaseq_example/HTS_testing$ exit
+    <div class="output">msettles@drove-13:/share/workshop/jli/rnaseq_example/HTS_testing$ exit
     exit
-    msettles@tadpole:/share/workshop/msettles/rnaseq_example/HTS_testing$
+    msettles@tadpole:/share/workshop/jli/rnaseq_example/HTS_testing$
     </div>
 
 ###  Now let's take a look at an alignment in IGV.
@@ -230,13 +230,13 @@ What does stranded and unstranded mean? Which is better and why? [Stranded vs Un
 
     ```bash
     cd /share/workshop/mrnaseq_workshop/$USER/rnaseq_example/HTS_testing
-    samtools index mouse_110_WT_C_R1_Aligned.sortedByCoord.out.bam
+    samtools index mouse_110_WT_C_Aligned.sortedByCoord.out.bam
     ```
 
     **IF** for some reason it didn't finish, is corrupted or you missed the session, you can copy over a completed copy
 
     ```bash
-    cp -r /share/biocore/workshops/2020_mRNAseq_July/HTS_testing/mouse_110_WT_C_R1_Aligned.sortedByCoord.out.bam* /share/workshop/mrnaseq_workshop/$USER/rnaseq_example/HTS_testing
+    cp -r /share/biocore/workshops/2020_mRNAseq_July/HTS_testing/mouse_110_WT_C_Aligned.sortedByCoord.out.bam* /share/workshop/mrnaseq_workshop/$USER/rnaseq_example/HTS_testing
     ```
 
 2. Transfer mouse_110_WT_C.streamed_Aligned.sortedByCoord.out.bam and mouse_110_WT_C.streamed_Aligned.sortedByCoord.out.bam.bai (the index file) to your computer using scp or winSCP, or copy/paste from cat [sometimes doesn't work].
@@ -245,7 +245,7 @@ What does stranded and unstranded mean? Which is better and why? [Stranded vs Un
     ```bash
     mkdir ~/rnaseq_workshop
     cd ~/rnaseq_workshop
-    scp [your_username]@tadpole.genomecenter.ucdavis.edu:/share/workshop/mrnaseq_workshop/[your_username]/rnaseq_example/HTS_testing/mouse_110_WT_C_R1_Aligned.sortedByCoord.out.bam* .
+    scp [your_username]@tadpole.genomecenter.ucdavis.edu:/share/workshop/mrnaseq_workshop/[your_username]/rnaseq_example/HTS_testing/mouse_110_WT_C_Aligned.sortedByCoord.out.bam* .
     ```
 
     Its ok of the mkdir command fails ("File exists") because we aleady created the directory earlier.
@@ -323,7 +323,7 @@ What does stranded and unstranded mean? Which is better and why? [Stranded vs Un
 
     ```bash
     cd /share/biocore/workshop/mrnaseq_workshop/$USER/rnaseq_example  # We'll run this from the main directory
-    wget https://raw.githubusercontent.com/ucdavis-bioinformatics-training/2021-September-RNA-Seq-Analysis/master/software_scripts/scripts/star.slurm
+    wget https://raw.githubusercontent.com/ucdavis-bioinformatics-training/2022-June-RNA-Seq-Analysis/master/software_scripts/scripts/star.slurm
     less star.slurm
     ```
 
@@ -335,7 +335,7 @@ What does stranded and unstranded mean? Which is better and why? [Stranded vs Un
     #SBATCH --time=60
     #SBATCH --mem=32000 # Memory pool for all cores (see also --mem-per-cpu)
     #SBATCH --partition=production
-    #SBATCH --reservation=workshop
+    #SBATCH --reservation=mrnaseq_workshop
     #SBATCH --account=workshop
     #SBATCH --array=1-22
     #SBATCH --output=slurmout/star_%A_%a.out # File to which STDOUT will be written
@@ -354,7 +354,7 @@ What does stranded and unstranded mean? Which is better and why? [Stranded vs Un
 
     echo "SAMPLE: ${sample}"
 
-    module load star
+    module load star/2.7.10a
 
     call="STAR
          --runThreadN 8 \
@@ -400,7 +400,7 @@ When you are done, type "q" to exit.
 
     ```bash
     cd /share/biocore/workshop/mrnaseq_workshop/$USER/rnaseq_example  # We'll run this from the main directory
-    wget https://raw.githubusercontent.com/ucdavis-bioinformatics-training/2021-September-RNA-Seq-Analysis/master/software_scripts/scripts/star_stats.sh
+    wget https://raw.githubusercontent.com/ucdavis-bioinformatics-training/2022-June-RNA-Seq-Analysis/master/software_scripts/scripts/star_stats.sh
     bash star_stats.sh
     ```
 

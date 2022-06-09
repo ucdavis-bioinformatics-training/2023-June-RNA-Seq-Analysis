@@ -79,7 +79,7 @@
     mkdir star.overlap100.gencode.M29
     cd star.overlap100.gencode.M29
 
-    module load star
+    module load star/2.7.10a
 
     call="STAR
         --runThreadN 8 \
