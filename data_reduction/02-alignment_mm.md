@@ -233,15 +233,17 @@ What does stranded and unstranded mean? Which is better and why? [Stranded vs Un
     samtools index mouse_110_WT_C.htstream_Aligned.sortedByCoord.out.bam
     ```
 
-    **IF** for some reason it didn't finish, is corrupted or you missed the session, you can copy over a completed copy
+    **IF for some reason it didn't finish, is corrupted or you missed the session, you can copy over a completed copy.**
 
     ```bash
     cp -r /share/biocore/workshops/2022_mRNAseq_June/HTS_testing/mouse_110_WT_C.htstream_Aligned.sortedByCoord.out.bam* /share/workshop/mrnaseq_workshop/$USER/rnaseq_example/HTS_testing
     ```
 
-2. Transfer mouse_110_WT_C.htstream_Aligned.sortedByCoord.out.bam and mouse_110_WT_C.htstream_Aligned.sortedByCoord.out.bam.bai (the index file) to your computer using scp or winSCP, or copy/paste from cat [sometimes doesn't work].
+2. Transfer mouse_110_WT_C.htstream_Aligned.sortedByCoord.out.bam and mouse_110_WT_C.htstream_Aligned.sortedByCoord.out.bam.bai (the index file) to your computer using scp,FileZilla or winSCP.
 
-    In Mac/Linux, Windows users use WinSCP. In a new shell session on my laptop. **NOT logged into tadpole. Replace [your_username] with your username.**
+    Windows users can use WinSCP or FileZilla, both of which are GUI based.
+
+    Mac/Linux users can use scp. In a new shell session on my laptop. **NOT logged into tadpole. Replace [your_username] with your username.**
 
     ```bash
     mkdir ~/rnaseq_workshop

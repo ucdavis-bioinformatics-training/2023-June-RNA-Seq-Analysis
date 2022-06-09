@@ -6,7 +6,7 @@
 #SBATCH --time=60
 #SBATCH --mem=32000 # Memory pool for all cores (see also --mem-per-cpu)
 #SBATCH --partition=production
-#SBATCH --reservation=workshop
+#SBATCH --reservation=mrnaseq_workshop
 #SBATCH --account=workshop
 #SBATCH --array=1-22
 #SBATCH --output=slurmout/star_%A_%a.out # File to which STDOUT will be written
@@ -17,7 +17,7 @@ echo $HOSTNAME
 echo "My SLURM_ARRAY_TASK_ID: " $SLURM_ARRAY_TASK_ID
 
 sample=`sed "${SLURM_ARRAY_TASK_ID}q;d" samples.txt`
-REF="References/star.overlap100.gencode.M25"
+REF="References/star.overlap100.gencode.M29"
 
 outpath='02-STAR_alignment'
 [[ -d ${outpath} ]] || mkdir ${outpath}
