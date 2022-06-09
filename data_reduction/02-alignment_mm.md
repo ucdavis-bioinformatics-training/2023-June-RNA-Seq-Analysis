@@ -196,15 +196,15 @@ What does stranded and unstranded mean? Which is better and why? [Stranded vs Un
 1. Then run the star commands
 
     ```bash
-    module load star
+    module load star/2.7.10a
     STAR \
     --runThreadN 12 \
        --genomeDir ../References/star.overlap100.gencode.M29 \
        --outSAMtype BAM SortedByCoordinate \
        --quantMode GeneCounts \
-       --outFileNamePrefix mouse_110_WT_C_ \
+       --outFileNamePrefix mouse_110_WT_C.subset_ \
        --readFilesCommand zcat \
-       --readFilesIn mouse_110_WT_C_R1.fastq.gz mouse_110_WT_C_R2.fastq.gz
+       --readFilesIn mouse_110_WT_C.subset_R1.fastq.gz mouse_110_WT_C.subset_R2.fastq.gz
     ```
 
     In the command, we are telling star to count reads on a gene level ('--quantMode GeneCounts'), the prefix for all the output files will be mouse_110_WT_C.streamed_, the command to unzip the files (zcat), and finally, the input file pair.

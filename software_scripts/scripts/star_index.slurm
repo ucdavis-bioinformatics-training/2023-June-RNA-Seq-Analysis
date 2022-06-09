@@ -21,15 +21,15 @@ mkdir -p ${outpath}
 
 cd ${outpath}
 wget https://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_mouse/release_M29/GRCm39.primary_assembly.genome.fa.gz
-gunzip GRCm38.primary_assembly.genome.fa.gz
-FASTA="../GRCm38.primary_assembly.genome.fa"
+gunzip GRCm39.primary_assembly.genome.fa.gz
+FASTA="../GRCm39.primary_assembly.genome.fa"
 
 wget wget https://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_mouse/release_M29/gencode.vM29.primary_assembly.annotation.gtf.gz
-gunzip gencode.vM25.annotation.gtf.gz
-GTF="../gencode.vM25.annotation.gtf"
+gunzip gencode.vM29.primary_assembly.annotation.gtf.gz
+GTF="../gencode.vM29.primary_assembly.annotation.gtf"
 
-mkdir star.overlap100.gencode.M25
-cd star.overlap100.gencode.M25
+mkdir star.overlap100.gencode.M29
+cd star.overlap100.gencode.M29
 
 module load star
 
