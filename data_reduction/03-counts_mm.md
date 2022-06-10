@@ -34,7 +34,7 @@ In this section, we will collate all of the count data into one file for analysi
     head 02-STAR_alignment/mouse_110_WT_C/mouse_110_WT_C_ReadsPerGene.out.tab
     ```
 
-    <div class="output">N_unmapped	212769	212769	212769
+    <div class="output"> N_unmapped	212769	212769	212769
     N_multimapping	106736	106736	106736
     N_noFeature	315211	2644333	328737
     N_ambiguous	118303	895	47505
