@@ -211,9 +211,9 @@ What does stranded and unstranded mean? Which is better and why? [Stranded vs Un
 
     Once finished please 'exit' the srun session. You'll know you were successful when your back on tadpole
 
-    <div class="output">msettles@drove-13:/share/workshop/jli/rnaseq_example/HTS_testing$ exit
+    <div class="output">jli@drove-13:/share/workshop/jli/rnaseq_example/HTS_testing$ exit
     exit
-    msettles@tadpole:/share/workshop/jli/rnaseq_example/HTS_testing$
+    jli@tadpole:/share/workshop/jli/rnaseq_example/HTS_testing$
     </div>
 
 ###  Now let's take a look at an alignment in IGV.
@@ -390,7 +390,7 @@ When you are done, type "q" to exit.
     We can watch the progress of our task array using the 'squeue' command. Takes about 30 minutes to process each sample.
 
     ```sbatch
-    squeue -u msettles  # use your username
+    squeue -u $USER 
     ```
 
 
