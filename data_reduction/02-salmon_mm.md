@@ -92,7 +92,7 @@ ln -s /share/biocore/workshops/2022_mRNAseq_June/01-HTS_Preproc /share/workshop/
     1. Create a decoy-aware transcriptome by concatenating the genome to the end of the transcriptome and a corresponding decoys.txt file
     1. Run Salmon indexing, using the "gencode" flag to parse the GENCODE file properly, and outputting to a new directory called "salmon_gencode.vM29.index".
 
-1. Run salmon indexing when ready.
+1. Run salmon indexing script when ready.
 
     ```bash
     sbatch salmon_index.slurm
@@ -127,9 +127,9 @@ ln -s /share/biocore/workshops/2022_mRNAseq_June/01-HTS_Preproc /share/workshop/
         --libType A \
         --validateMappings \
         --geneMap ../References/gencode.vM29.primary_assembly.annotation.gtf \
-        --output mouse_110_WT_C.salmon \
-        -1 mouse_110_WT_C_R1.fastq.gz \
-        -2 mouse_110_WT_C_R2.fastq.gz
+        --output mouse_110_WT_C.subset.salmon \
+        -1 mouse_110_WT_C.subset_R1.fastq.gz \
+        -2 mouse_110_WT_C.subset_R2.fastq.gz
     ```
 
     In the command, we are telling salmon to quantify reads with libtype 'auto' ([libtype](https://salmon.readthedocs.io/en/latest/salmon.html#what-s-this-libtype)) on a gene level ('--geneMap'), the folder for all the output files will be mouse_110_WT_C.salmon, and finally, the input file pair.
@@ -153,7 +153,7 @@ ln -s /share/biocore/workshops/2022_mRNAseq_June/01-HTS_Preproc /share/workshop/
     #SBATCH --time=1440
     #SBATCH --mem=20000 # Memory pool for all cores (see also --mem-per-cpu)
     #SBATCH --partition=production
-    #SBATCH --reservation=workshop
+    #SBATCH --reservation=mrnaseq_workshop
     #SBATCH --account=workshop
     #SBATCH --output=slurmout/salmon_%A_%a.out # File to which STDOUT will be written
     #SBATCH --error=slurmout/salmon_%A_%a.err # File to which STDERR will be written
@@ -223,16 +223,16 @@ ln -s /share/biocore/workshops/2022_mRNAseq_June/01-HTS_Preproc /share/workshop/
     head quant.sf
     ```
 
-    <div class="script">Name    Length  EffectiveLength TPM NumReads
-    ENSMUST00000070533.4    3634    3490.053    0.000000    0.000
-    ENSMUST00000208660.1    4170    4026.053    0.000000    0.000
-    ENSMUST00000027032.5    6869    6725.053    0.000000    0.000
-    ENSMUST00000027035.9    3127    2983.053    0.000000    0.000
-    ENSMUST00000195555.1    1977    1833.053    0.000000    0.000
-    ENSMUST00000192650.5    3242    3098.053    0.000000    0.000
-    ENSMUST00000116652.7    1512    1368.053    0.000000    0.000
-    ENSMUST00000191647.1    406 262.201 0.000000    0.000
-    ENSMUST00000191939.1    840 696.074 0.000000    0.000
+    <div class="script"> Name	Length	EffectiveLength	TPM	NumReads
+    ENSMUST00000193812.2	1070	924.988	0.000000	0.000
+    ENSMUST00000082908.3	110	13.605	0.000000	0.000
+    ENSMUST00000162897.2	4153	4007.988	0.000000	0.000
+    ENSMUST00000159265.2	2989	2843.988	0.000000	0.000
+    ENSMUST00000070533.5	3634	3488.988	0.000000	0.000
+    ENSMUST00000192857.2	480	335.062	0.000000	0.000
+    ENSMUST00000195335.2	2819	2673.988	0.000000	0.000
+    ENSMUST00000192336.2	2233	2087.988	0.000000	0.000
+    ENSMUST00000194099.2	2309	2163.988	0.000000	0.000
     </div>
 
     These are the transcript-level counts. Each row describes a single quantification record. The columns have the following interpretation.
@@ -251,22 +251,22 @@ ln -s /share/biocore/workshops/2022_mRNAseq_June/01-HTS_Preproc /share/workshop/
 
     ```bash
     cd /share/workshop/mrnaseq_workshop/$USER/rnaseq_example  # We'll run this from the main directory
-    wget https://raw.githubusercontent.com/ucdavis-bioinformatics-training/2021-September-RNA-Seq-Analysis/master/software_scripts/scripts/salmon_stats.R
+    wget https://raw.githubusercontent.com/ucdavis-bioinformatics-training/2022-June-RNA-Seq-Analysis/master/software_scripts/scripts/salmon_stats.R
 	module load R
 	R CMD BATCH salmon_stats.R
     ```
 
 1. Transfer summary_salmon_alignments.txt to your computer using scp or winSCP, or copy/paste from cat [sometimes doesn't work],  
 
-    In Mac/Linux, Windows users use WinSCP. In a new shell session on my laptop. **NOT logged into tadpole**. Replace my [your_username] with your username
+    In Mac/Linux, Windows users use WinSCP. In a new shell session on my laptop. **NOT logged into tadpole. Replace my [your_username] with your username.**
 
     ```bash
-    mkdir ~/rnaseq_workshop
+    mkdir -p ~/rnaseq_workshop
     cd ~/rnaseq_workshop
     scp [your_username]@tadpole.genomecenter.ucdavis.edu:/share/workshop/mrnaseq_workshop/[your_username]/rnaseq_example/summary_salmon_alignments.txt .
     ```
 
-    Its ok of the mkdir command fails ("File exists") because we aleady created the directory earlier.
+    Its ok if the mkdir command fails ("File exists") because we aleady created the directory earlier.
 
     Open in excel (or excel like application), and lets review.
 
@@ -284,8 +284,8 @@ ln -s /share/biocore/workshops/2022_mRNAseq_June/01-HTS_Preproc /share/workshop/
 
     ```bash
     cd /share/workshop/mrnaseq_workshop/$USER/rnaseq_example
-    mkdir 03-Counts
-    mkdir 03-Counts/tmp
+    mkdir -p 03-Counts
+    mkdir -p 03-Counts/tmp
     for sample in `cat samples.txt`; do \
         echo ${sample}
         tail -n +2 02-Salmon_alignment/${sample}/quant.genes.sf | cut -f4 > 03-Counts/tmp/${sample}.count
@@ -318,12 +318,12 @@ ln -s /share/biocore/workshops/2022_mRNAseq_June/01-HTS_Preproc /share/workshop/
     head 03-Counts/rnaseq_salmon_workshop_counts.txt
     ```
 
-1. Copy to your computer
+1. Download to your computer
 
-    In Mac/Linux, Windows users use WinSCP. In a new shell session on my laptop. **NOT logged into tadpole**. Replace my [your_username] with your username
+    In Mac/Linux, Windows users use WinSCP. In a new shell session on my laptop. **NOT logged into tadpole. Replace my [your_username] with your username.**
 
     ```bash
-    mkdir ~/rnaseq_workshop
+    mkdir -p ~/rnaseq_workshop
     cd ~/rnaseq_workshop
     scp [your_username]@tadpole.genomecenter.ucdavis.edu:/share/workshop/mrnaseq_workshop/[your_username]/rnaseq_example/03-Counts/rnaseq_salmon_workshop_counts.txt .
     ```
