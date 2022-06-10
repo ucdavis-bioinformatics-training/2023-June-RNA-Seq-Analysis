@@ -7,7 +7,7 @@
 #SBATCH --time=1440
 #SBATCH --mem=20000 # Memory pool for all cores (see also --mem-per-cpu)
 #SBATCH --partition=production
-#SBATCH --reservation=workshop
+#SBATCH --reservation=mrnaseq_workshop
 #SBATCH --account=workshop
 #SBATCH --output=slurmout/salmon_%A_%a.out # File to which STDOUT will be written
 #SBATCH --error=slurmout/salmon_%A_%a.err # File to which STDERR will be written
@@ -18,8 +18,8 @@ hostname
 
 outdir="02-Salmon_alignment"
 sampfile="samples.txt"
-REF="References/salmon_gencode.vM25.index"
-GTF="References/gencode.vM25.annotation.gtf"
+REF="References/salmon_gencode.vM29.index"
+GTF="References/gencode.vM29.primary_assembly.annotation.gtf"
 
 SAMPLE=`head -n ${SLURM_ARRAY_TASK_ID} $sampfile | tail -1`
 R1="01-HTS_Preproc/$SAMPLE/${SAMPLE}_R1.fastq.gz"
