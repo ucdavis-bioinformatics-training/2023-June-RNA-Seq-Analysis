@@ -7,7 +7,10 @@
  <img src="https://raw.githubusercontent.com/ucdavis-bioinformatics-training/2022-June-RNA-Seq-Analysis/master/data_reduction/filetypes_figures/tagseq.png" alt="tagseq_protocol" width="600px"/>
 
 
+The comparison of the traditional RNASeq profile and TagSeq across gene annotations.
+
  <img src="https://raw.githubusercontent.com/ucdavis-bioinformatics-training/2022-June-RNA-Seq-Analysis/master/data_reduction/filetypes_figures/lexo.png" alt="tagseq_coverage" width="400px"/>
+
 
 
 ### Advantages of TagSeq
