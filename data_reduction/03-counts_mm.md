@@ -107,18 +107,17 @@ In this section, we will collate all of the count data into one file for analysi
     head 03-Counts/rnaseq_workshop_counts.txt
     ```
 
-    <div class="output">msettles@gigantor:/share/biocore/workshop/mrnaseq_workshop/msettles/rnaseq_example$ head 03-Counts/rnaseq_workshop_counts.txt
-
+    <div class="output"> jli@ganesh:/share/workshop/mrnaseq_workshop/jli/rnaseq_example$  head 03-Counts/rnaseq_workshop_counts.txt
     mouse_110_WT_C	mouse_110_WT_NC	mouse_148_WT_C	mouse_148_WT_NC	mouse_158_WT_C	mouse_158_WT_NC	mouse_183_KOMIR150_C	mouse_183_KOMIR150_NC	mouse_198_KOMIR150_C	mouse_198_KOMIR150_NC	mouse_206_KOMIR150_C	mouse_206_KOMIR150_NC	mouse_2670_KOTet3_C	mouse_2670_KOTet3_NC	mouse_7530_KOTet3_C	mouse_7530_KOTet3_NC	mouse_7531_KOTet3_C	mouse_7532_WT_NC	mouse_H510_WT_C	mouse_H510_WT_NC	mouse_H514_WT_C	mouse_H514_WT_NC
-    ENSMUSG00000102693.1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
-    ENSMUSG00000064842.1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
-    ENSMUSG00000051951.5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
-    ENSMUSG00000102851.1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
-    ENSMUSG00000103377.1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
-    ENSMUSG00000104017.1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
-    ENSMUSG00000103025.1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
-    ENSMUSG00000089699.1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
-    ENSMUSG00000103201.1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+    ENSMUSG00000102693.2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+    ENSMUSG00000064842.3	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+    ENSMUSG00000051951.6	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+    ENSMUSG00000102851.2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+    ENSMUSG00000103377.2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+    ENSMUSG00000104017.2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+    ENSMUSG00000103025.2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+    ENSMUSG00000089699.2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+    ENSMUSG00000103201.2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
     </div>
 
     And now you have a raw counts file that has a count for every gene, per sample. You will use this file for the next step, which is analysis in R.
