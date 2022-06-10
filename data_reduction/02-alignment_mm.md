@@ -432,7 +432,7 @@ When you are done, type "q" to exit.
 
 2. Transfer `summary_star_alignments.txt` to your computer using scp or winSCP, or copy/paste from cat [sometimes doesn't work],  
 
-    In Mac/Linux, Windows users use WinSCP. In a new shell session on my laptop. **NOT logged into tadpole**. Replace my [your_username] with your username
+    In Mac/Linux, users can use scp. Windows users can use WinSCP. In a new shell session on my laptop. **NOT logged into tadpole. Replace my [your_username] with your username.**
 
     ```bash
     mkdir -p ~/rnaseq_workshop

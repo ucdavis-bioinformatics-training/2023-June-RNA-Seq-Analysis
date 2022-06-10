@@ -2,11 +2,11 @@
 
 This document assumes [alignment](./alignment.md) has been completed.
 
-**IF** for some reason it didn't finish, is corrupted or you missed the session, you can copy over a completed copy
+**IF for some reason it didn't finish, is corrupted or you missed the session, you can copy over a completed copy.**
 
 ```bash
-cp -r /share/biocore/workshops/2020_mRNAseq_July/02-STAR_alignment /share/biocore/workshop/mrnaseq_workshop/$USER/rnaseq_example/.
-cp  /share/biocore/workshops/2020_mRNAseq_July/summary_star_alignments.txt /share/biocore/workshop/mrnaseq_workshop/$USER/rnaseq_example/.
+cp -r /share/biocore/workshops/2022_mRNAseq_June/02-STAR_alignment /share/biocore/workshop/mrnaseq_workshop/$USER/rnaseq_example/.
+cp  /share/biocore/workshops/2022_mRNAseq_June/summary_star_alignments.txt /share/biocore/workshop/mrnaseq_workshop/$USER/rnaseq_example/.
 ```
 
 In this section, we will collate all of the count data into one file for analysis in R.
@@ -34,16 +34,16 @@ In this section, we will collate all of the count data into one file for analysi
     head 02-STAR_alignment/mouse_110_WT_C/mouse_110_WT_C_ReadsPerGene.out.tab
     ```
 
-    <div class="output">N_unmapped	104053	104053	104053
-    N_multimapping	213356	213356	213356
-    N_noFeature	626845	2673425	668318
-    N_ambiguous	220707	5332	97039
-    ENSG00000223972.5	3	0	3
-    ENSG00000227232.5	21	0	21
-    ENSG00000278267.1	1	0	1
-    ENSG00000243485.5	0	0	0
-    ENSG00000284332.1	0	0	0
-    ENSG00000237613.2	0	0	0
+    <div class="output">N_unmapped	212769	212769	212769
+    N_multimapping	106736	106736	106736
+    N_noFeature	315211	2644333	328737
+    N_ambiguous	118303	895	47505
+    ENSMUSG00000102693.2	0	0	0
+    ENSMUSG00000064842.3	0	0	0
+    ENSMUSG00000051951.6	0	0	0
+    ENSMUSG00000102851.2	0	0	0
+    ENSMUSG00000103377.2	0	0	0
+    ENSMUSG00000104017.2	0	0	0
     </div>
 
     The columns are ID, reads map to either strand, reads mapped to forward strand, and reads mapped to the reverse strand and the first four lines are category totals. In this experiment, it looks like the reads are from the reverse strand, due to the much higher mapping numbers in that column and they similar to reads mapped to either strands. So what we want is just that column of numbers (minus the first four lines), for every one of these files.
