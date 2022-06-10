@@ -51,6 +51,8 @@ navigation:
     url: data_reduction/03-counts_mm
   - title: Alignment/Counts with Salmon (Extra)
     url: data_reduction/02-salmon_mm
+  - title: 3' TagSeq
+    url: data_reduction/02-tagseq_mm
 
   - heading: Data analysis
   - title: Prepare R for data analysis
