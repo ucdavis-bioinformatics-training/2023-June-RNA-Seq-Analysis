@@ -4,10 +4,10 @@
 
 3′ TagSeq is a protocol to generate low-cost and exceptionally low-noise gene expression profiling data.
 
- <img src="https://raw.githubusercontent.com/ucdavis-bioinformatics-training/2022-June-RNA-Seq-Analysis/master/data_reduction/filetypes_figures/tagseq.png" alt="tagseq_protocol" width="800px"/>
+ <img src="https://raw.githubusercontent.com/ucdavis-bioinformatics-training/2022-June-RNA-Seq-Analysis/master/data_reduction/filetypes_figures/tagseq.png" alt="tagseq_protocol" width="600px"/>
 
 
- <img src="https://raw.githubusercontent.com/ucdavis-bioinformatics-training/2022-June-RNA-Seq-Analysis/master/data_reduction/filetypes_figures/lexo.png" alt="tagseq_coverage" width="800px"/>
+ <img src="https://raw.githubusercontent.com/ucdavis-bioinformatics-training/2022-June-RNA-Seq-Analysis/master/data_reduction/filetypes_figures/lexo.png" alt="tagseq_coverage" width="400px"/>
 
 
 ### Advantages of TagSeq
