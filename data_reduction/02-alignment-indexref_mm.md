@@ -46,7 +46,7 @@
     less star_index.slurm
     ```
 
-    <div class="script">#!/bin/bash
+    <pre class="prettyprint"><code class="language-py" style="background-color:333333">#!/bin/bash
     #SBATCH --job-name=star_index # Job name
     #SBATCH --nodes=1
     #SBATCH --ntasks=16
@@ -95,7 +95,7 @@
     end=`date +%s`
     runtime=$((end-start))
     echo $runtime
-    </div>
+    </code></pre>
 
     When you are done, type "q" to exit.
 
