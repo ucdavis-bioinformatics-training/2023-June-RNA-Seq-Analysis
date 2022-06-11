@@ -346,7 +346,7 @@ submitButton2.addEventListener('click', function() {showResults(myQuestions2, qu
 
 ## Create and Destroy
 
-We already learned one command that will create a file, touch.
+Let's create a directory and a text file.
 
     cd  # home again
     echo $USER # echo to screen the contents of the variable $USER
@@ -390,7 +390,7 @@ Since copying or even moving large files (like sequence data) around your filesy
 
 The 'ln' command creates a link. **You should, by default, always create a symbolic link using the -s option.**
 
-    ln -s ~/newFile .
+    ln -s ~/cli/newFile .
     ls -ltrhaF  # notice the symbolic link pointing at its target
 
 
