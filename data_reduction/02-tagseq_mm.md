@@ -15,10 +15,10 @@ The comparison of the traditional RNASeq profile and TagSeq across gene annotati
 
 ### Advantages of TagSeq
 
-  * low cost
-  * less sensitivy to sample quality
   * lower sequencing depth required (~5-10M vs 20-30M)
   * single-end sequencing is sufficient
+  * low cost
+  * less sensitivy to sample quality
   * Unique Molecular Identifiers used by default
   * low noise
   * strand specific (>99%)
@@ -75,6 +75,7 @@ The data reduction steps involved in TagSeq analysis are very similar to regular
             hts_SeqScreener -A ${outpath}/${sample}/${sample}.json -N 'count the number of rRNA reads'\
             -r -s References/mouse_rrna.fasta | \
             ./extract_UMI_htstream.py --read 1 --length 6 | \
+            hts_CutTrim -a 16 -A ${outpath}/${sample}/${sample}.json -N 'trim first 16 bases' | \
             hts_AdapterTrimmer -A ${outpath}/${sample}/${sample}.json -N 'trim adapters' | \
             hts_PolyATTrim --no-left --skip_polyT -A ${outpath}/${sample}/${sample}.json -N 'remove polyA' | \
             hts_QWindowTrim -A ${outpath}/${sample}/${sample}.json -N 'quality trim the ends of reads' | \
