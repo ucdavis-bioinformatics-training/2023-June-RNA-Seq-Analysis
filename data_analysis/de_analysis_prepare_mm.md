@@ -76,7 +76,7 @@ download.file("https://raw.githubusercontent.com/ucdavis-bioinformatics-training
 #### For the salmon datasets
 
 ```r
-download.file("https://raw.githubusercontent.com/ucdavis-bioinformatics-training/2021-September-RNA-Seq-Analysis/master/datasets/rnaseq_salmon_workshop_counts.txt", "rnaseq_salmon_workshop_counts.txt")
+download.file("https://raw.githubusercontent.com/ucdavis-bioinformatics-training/2022-June-RNA-Seq-Analysis/master/datasets/rnaseq_salmon_workshop_counts.txt", "rnaseq_salmon_workshop_counts.txt")
 ```
 
 ### Edit the file YAML portion
