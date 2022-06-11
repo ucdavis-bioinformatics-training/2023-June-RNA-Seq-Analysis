@@ -6,7 +6,7 @@ Annotation from [BioMart](https://uswest.ensembl.org/biomart/martview/)  with En
 
 <img src="annotation_mm_figures/annotation_figures1.png" alt="annotation_figures1" width="80%" style="border:5px solid #ADD8E6;"/>
 
-1. First select the dataset, for gene expression experiment select Ensembl Genes 104 (version 104). The current version as of this workshop.
+1. First select the dataset, for gene expression experiment select Ensembl Genes 106 (version 106). The current version as of this workshop.
 
 <img src="annotation_mm_figures/annotation_figures2.png" alt="annotation_figures2" width="80%" style="border:5px solid #ADD8E6;"/>
 
@@ -36,4 +36,4 @@ Annotation from [BioMart](https://uswest.ensembl.org/biomart/martview/)  with En
 
 <img src="annotation_mm_figures/annotation_figures11.png" alt="annotation_figures11" width="80%" style="border:5px solid #ADD8E6;"/>
 
-1. The file will save as "mart_export.txt", put the file into our working directory, rename to "ensembl_mm_104.tsv" and open the file in Excel to view the annotation.
+1. The file will save as "mart_export.txt", put the file into our working directory, rename to "ensembl_mm_106.tsv" and open the file in Excel to view the annotation.
