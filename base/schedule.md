@@ -34,5 +34,8 @@ All posted times are **Pacific** time zone. At least one break will be provided 
 
 ## Workshop blocks
 
+<p align = "center">
 <img src="figures/WF.png" alt="WF_flowchart" width="30%" align="center"/>
+</p>
+
 
