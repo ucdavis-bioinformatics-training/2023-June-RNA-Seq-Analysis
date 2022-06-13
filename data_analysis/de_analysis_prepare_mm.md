@@ -9,9 +9,9 @@ Learn more about [renv](https://rstudio.github.io/renv/articles/renv.html)
 
 ## Install the needed R packages
 
-Set some options and make sure the packages edgeR, gplots, RColorBrewer, topGO, KEGGREST, Rgraphviz and org.Mm.eg.db are installed (if not install it), and then load
+Set some options and make sure the packages edgeR, gplots, RColorBrewer, topGO, KEGGREST, Rgraphviz and org.Mm.eg.db are installed (if not install it), and then load.
 
-In the R console run the following commands
+In the R console run the following commands *one at a time*:
 ```r
 if (!requireNamespace("BiocManager", quietly = TRUE))
   install.packages("BiocManager")
@@ -70,7 +70,7 @@ download.file("https://raw.githubusercontent.com/ucdavis-bioinformatics-training
 ```
 
 ```r
-download.file("https://raw.githubusercontent.com/ucdavis-bioinformatics-training/2022-June-RNA-Seq-Analysis/master/datasets/ensembl_mm_104.tsv", "ensembl_mm_104.tsv")
+download.file("https://raw.githubusercontent.com/ucdavis-bioinformatics-training/2022-June-RNA-Seq-Analysis/master/datasets/ensembl_mm_106.tsv", "ensembl_mm_106.tsv")
 ```
 
 #### For the salmon datasets
@@ -79,15 +79,3 @@ download.file("https://raw.githubusercontent.com/ucdavis-bioinformatics-training
 download.file("https://raw.githubusercontent.com/ucdavis-bioinformatics-training/2022-June-RNA-Seq-Analysis/master/datasets/rnaseq_salmon_workshop_counts.txt", "rnaseq_salmon_workshop_counts.txt")
 ```
 
-### Edit the file YAML portion
-
-The top YAML (YAML ain't markup language) portion of the doc tells RStudio how to parse the document.
-
-<pre><code>---
-title: "RNAseq Data Analysis in R"
-author: your_name
-date: current_date
-output:
-    html_notebook: default
-    html_document: default
----</code></pre>
