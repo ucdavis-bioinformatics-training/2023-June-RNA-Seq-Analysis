@@ -192,17 +192,6 @@ Quick aside: what if I want to use same options repeatedly? and be lazy? You can
 
 ## Directory Structure
 
-Absolute path: always starts with ”/” - the root folder
-
-/share/workshop/msettles/mrnaseq_workshop/cli
-
-the folder (or file) "cli" in the folder "msettles" in the folder "mrnaseq_workshop" in the folder "workshop" in the folder "share" from the root folder.
-
-Relative path: always relative to our current location.
-
-_a single dot (.) refers to the current directory_
-_two dots (..) refers to the directory one level up_
-
 <img src="figures/cli_figure2.png" alt="cli_figure2" width="500px"/>
 
 Usually, /home is where the user accounts reside, ie. users' 'home' directories.
