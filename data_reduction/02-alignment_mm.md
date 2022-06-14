@@ -437,7 +437,7 @@ When you are done, type "q" to exit.
     ```bash
     mkdir -p ~/rnaseq_workshop
     cd ~/rnaseq_workshop
-    scp [your_username]@tadpole.genomecenter.ucdavis.edu:/share/biocore/workshop/mrnaseq_workshop/[your_username]/rnaseq_example/summary_star_alignments.txt .
+    scp [your_username]@tadpole.genomecenter.ucdavis.edu:/share/workshop/mrnaseq_workshop/[your_username]/rnaseq_example/summary_star_alignments.txt .
     ```
 
 
