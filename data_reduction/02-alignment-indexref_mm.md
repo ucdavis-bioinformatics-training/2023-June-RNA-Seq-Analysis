@@ -70,7 +70,7 @@
 
     wget https://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_mouse/release_M29/GRCm39.primary_assembly.genome.fa.gz
     gunzip GRCm39.primary_assembly.genome.fa.gz
-    FASTA="../GRCm38.primary_assembly.genome.fa"
+    FASTA="../GRCm39.primary_assembly.genome.fa"
 
     wget https://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_mouse/release_M29/gencode.vM29.primary_assembly.annotation.gtf.gz
     gunzip gencode.vM29.primary_assembly.annotation.gtf.gz
