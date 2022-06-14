@@ -27,7 +27,7 @@ https://www.lexogen.com/wp-content/uploads/2015/04/nmeth.f.376.pdf
 
 ### Advantages of TagSeq
 
-  * lower sequencing depth required (~5-10M vs 20-30M)
+  * lower sequencing depth required (~5M vs 20-30M)
   * single-end sequencing is sufficient
   * low cost
   * less sensitivy to sample quality
