@@ -19,7 +19,7 @@ mkdir -p /share/biocore/workshop/mrnaseq_workshop/$USER/rnaseq_example
 cd /share/biocore/workshop/mrnaseq_workshop/$USER
 wget https://raw.githubusercontent.com/ucdavis-bioinformatics-training/2022-June-RNA-Seq-Analysis/master/software_scripts/scripts/star_index.slurm
 mkdir References
-ln -s /share/biocore/workshops/2022_mRNAseq_June/References/star.overlap100.gencode.M29 References/
+cp -r /share/biocore/workshops/2022_mRNAseq_June/References/star.overlap100.gencode.M29 References/
 cp -r /share/biocore/workshops/2022_mRNAseq_June/HTS_testing .
 ln -s /share/biocore/workshops/2022_mRNAseq_June/01-HTS_Preproc .
 ```
