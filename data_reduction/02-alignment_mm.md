@@ -16,12 +16,12 @@ To catch up to where we are:
 
 ```
 mkdir -p /share/workshop/mrnaseq_workshop/$USER/rnaseq_example
-cd /share/workshop/mrnaseq_workshop/$USER
+cd /share/workshop/mrnaseq_workshop/$USER/rnaseq_example
 wget https://raw.githubusercontent.com/ucdavis-bioinformatics-training/2022-June-RNA-Seq-Analysis/master/software_scripts/scripts/star_index.slurm
 mkdir References
-cp -r /share/biocore/workshops/2022_mRNAseq_June/References/star.overlap100.gencode.M29 References/
-cp -r /share/biocore/workshops/2022_mRNAseq_June/HTS_testing .
-ln -s /share/biocore/workshops/2022_mRNAseq_June/01-HTS_Preproc .
+cp -r /share/workshop/mrnaseq_workshop/jli/rnaseq_example/References/star.overlap100.gencode.M29 References/
+cp -r /share/workshop/mrnaseq_workshop/jli/rnaseq_example/HTS_testing .
+ln -s /share/workshop/mrnaseq_workshop/jli/rnaseq_example/01-HTS_Preproc .
 ```
 
 ---
