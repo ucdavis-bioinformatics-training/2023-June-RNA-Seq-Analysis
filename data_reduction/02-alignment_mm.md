@@ -111,7 +111,7 @@ More so, a aligner will try to map every read, somewhere, provided the alignment
 
 Genome sequence fasta files and annotation (gff, gtf) files go together! These should be identified at the beginning of analysis.
 
-* Genome fasta files should include all primary chromosomes, unplaced sequences and un-localized sequences, as well as any organelles. Should bet contain any contigs that represent patches, or alternative haplotypes.
+* Genome fasta files should include all primary chromosomes, unplaced sequences and un-localized sequences, as well as any organelles. Should not contain any contigs that represent patches, or alternative haplotypes.
 * If you expect contamination, or the presence of additional sequence/genome, add the sequence(s) to the genome fasta file.
 * Annotation file should be GTF (preferred), and should be the most comprehensive you can find.
   * Chromosome names in the GTF must match those in the fasta file (they don’t always do).
