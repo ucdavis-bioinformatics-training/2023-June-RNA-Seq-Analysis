@@ -236,7 +236,7 @@ What does stranded and unstranded mean? Which is better and why? [Stranded vs Un
     **IF for some reason it didn't finish, is corrupted or you missed the session, you can copy over a completed copy.**
 
     ```bash
-    cp -r /share/biocore/workshops/2022_mRNAseq_June/HTS_testing/mouse_110_WT_C.htstream_Aligned.sortedByCoord.out.bam* /share/workshop/mrnaseq_workshop/$USER/rnaseq_example/HTS_testing
+    cp -r /share/workshops/2022_mRNAseq_June/HTS_testing/mouse_110_WT_C.htstream_Aligned.sortedByCoord.out.bam* /share/workshop/mrnaseq_workshop/$USER/rnaseq_example/HTS_testing
     ```
 
 2. Transfer mouse_110_WT_C.htstream_Aligned.sortedByCoord.out.bam and mouse_110_WT_C.htstream_Aligned.sortedByCoord.out.bam.bai (the index file) to your computer using scp,FileZilla or winSCP.
@@ -402,7 +402,7 @@ When you are done, type "q" to exit.
     Use a script of ours, [star_stats.sh](../software_scripts/scripts/star_stats.sh) to collect the alignment stats. Don't worry about the script's contents at the moment; you'll use very similar commands to create a counts table in the next section. For now:
 
     ```bash
-    cd /share/biocore/workshop/mrnaseq_workshop/$USER/rnaseq_example  # We'll run this from the main directory
+    cd /share/workshop/mrnaseq_workshop/$USER/rnaseq_example # We'll run this from the main directory
     wget https://raw.githubusercontent.com/ucdavis-bioinformatics-training/2022-June-RNA-Seq-Analysis/master/software_scripts/scripts/star_stats.sh
     bash star_stats.sh
     ```
