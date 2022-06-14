@@ -45,7 +45,7 @@ ln -s /share/biocore/workshops/2022_mRNAseq_June/01-HTS_Preproc .
 * Multimappers:
   * Reads that align equally well to more than one reference location.
   * Generally, multimappers are discounted in variant detection, and are often discounted in counting applications (like RNA-Seq ... would “cancel” out anyway).
-  * Note: multimapper “rescue” in some algorithms (RSEM, Express?).
+  * Note: multimapper “rescue” in some algorithms (RSEM, eXpress).
 * Duplicates:
   * Reads or read pairs arising from the same original library fragment, either during library preparation (PCR duplicates).
   * Generally, duplicates can only be detected reliably with paired-end sequencing. If PE, they’re discounted in variant detection, and discounted in counting applications (like RNA-Seq).
