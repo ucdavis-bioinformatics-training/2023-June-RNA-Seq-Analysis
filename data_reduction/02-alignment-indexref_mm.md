@@ -115,7 +115,7 @@
 
     This step will take a couple hours. You can look at the [STAR documentation](https://github.com/alexdobin/STAR/blob/master/doc/STARmanual.pdf) while you wait. All of the output files will be written to the star index directory **star.overlap100.gencode.M29**.
 
-    **IF For the sake of time, or for some reason it didn't finish, is corrupted, or you missed the session, you can link** over a completed copy.
+    **IF For the sake of time, or for some reason it didn't finish, is corrupted, or you missed the session, you can link over a completed copy.** If the indexing job is still running, it should be canceled first.
 
     ```bash
     rm -rf /share/biocore/workshop/mrnaseq_workshop/$USER/rnaseq_example/References/star.overlap100.gencode.M29
