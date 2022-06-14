@@ -325,7 +325,7 @@ What does stranded and unstranded mean? Which is better and why? [Stranded vs Un
 1. We can now run STAR across all samples on the real data using a SLURM script, [star.slurm](../scripts/star.slurm), that we should take a look at now.
 
     ```bash
-    cd /share/biocore/workshop/mrnaseq_workshop/$USER/rnaseq_example  # We'll run this from the main directory
+    cd /share/workshop/mrnaseq_workshop/$USER/rnaseq_example  # We'll run this from the main directory
     wget https://raw.githubusercontent.com/ucdavis-bioinformatics-training/2022-June-RNA-Seq-Analysis/master/software_scripts/scripts/star.slurm
     less star.slurm
     ```
