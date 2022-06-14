@@ -15,7 +15,7 @@ A lot of RNA-seq analysis has been done in R and so there are many packages avai
 * DESeq2, developed by Simon Anders (also created htseq) in Wolfgang Huber’s group at EMBL
 * edgeR and Voom (extension to Limma [microarrays] for RNA-seq), developed out of Gordon Smyth’s group from the Walter and Eliza Hall Institute of Medical Research in Australia
 
-xhttp://bioconductor.org/packages/release/BiocViews.html#___RNASeq
+http://bioconductor.org/packages/release/BiocViews.html#___RNASeq
 
 ## Differential Expression Analysis with Limma-Voom
 
@@ -66,7 +66,7 @@ d0 <- DGEList(counts)
   
 **1a\.** Read in Annotation
 ```{r read_annotation}
-anno <- read.delim("ensembl_mm_104.tsv",as.is=T)
+anno <- read.delim("ensembl_mm_106.tsv",as.is=T)
 dim(anno)
 head(anno)
 tail(anno)
@@ -120,17 +120,29 @@ We filter genes based on non-experimental factors to reduce the number of genes/
 Common filters include:
 1. to remove genes with a max value (X) of less then Y.
 2. to remove genes that are less than X normalized read counts (cpm) across a certain number of samples. Ex: rowSums(cpms <=1) < 3 , require at least 1 cpm in at least 3 samples to keep.
-3. A less used filter is for genes with minimum variance across all samples, so if a gene isn't changing (constant expression) its inherently not interesting therefor no need to test.
+3. A less used filter is for genes with minimum variance across all samples, so if a gene isn't changing (constant expression) its inherently not interesting therefor no need to test. 
 
-Here we will filter low-expressed genes, remove any row (gene) whose max value (for the row) is less than the cutoff (2).
-```{r filter}
-cutoff <- 2
-drop <- which(apply(cpm(d0), 1, max) < cutoff)
-d <- d0[-drop,]
-dim(d) # number of genes left
+We will use the built in function filterByExpr() to filter low-expressed genes.  filterByExpr uses the experimental design to determine how many samples a gene needs to be expressed in to stay.  Importantly, once this number of samples has been determined, the group information is not used in filtering.
+
+Using filterByExpr requires specifying the model we will use to analysis our data.  
+
+* The model you use will change for every experiment, and this step should be given the most time and attention.*
+
+We use a model that includes group and (in order to account for the paired design) mouse.
+
+```{r model}
+group <- metadata$group
+mouse <- metadata$mouse
+mm <- model.matrix(~0 + group + mouse)
+head(mm)
 ```
 
-"Low-expressed" is subjective and depends on the dataset.
+```{r}
+keep <- filterByExpr(d0, mm)
+sum(keep) # number of genes retained
+d <- d0[keep,]
+```
+"Low-expressed" depends on the dataset and can be subjective.
 
 Visualizing your data with a Multidimensional scaling (MDS) plot.
 ```{r mds, fig.width=6}
@@ -145,7 +157,7 @@ The MDS plot tells you **A LOT** about what to expect from your experiment.
 * RPKM - Reads per kilobase per million mapped reads
 * FPKM - Fragments per kilobase per million mapped reads
 * logCPM – log Counts per million [ good for producing MDS plots, estimate of normalized values in model based ]
-* Model based - original read counts are not themselves transformed, but rather correction factors are used in the DE model itself.
+* Model based - original read counts are not themselves transformed, but rather correction factors are used in the DE model itself. 
 
 We use the `cpm` function with log=TRUE to obtain log-transformed normalized expression data.  On the log scale, the data has less mean-dependent variability and is more suitable for plotting.
 ```{r cpm}
@@ -155,18 +167,6 @@ write.table(logcpm,"rnaseq_workshop_normalized_counts.txt",sep="\t",quote=F)
 
 
 ## 4. Voom transformation and calculation of variance weights
-
-Specify the model to be fitted.  We do this before using voom since voom uses variances of the model residuals (observed - fitted)
-
-* The model you use will change for every experiment, and this step should be given the most time and attention.*
-
-```{r model}
-group <- metadata$group
-mouse <- metadata$mouse
-mm <- model.matrix(~0 + group + mouse)
-head(mm)
-```
-
 
 **4a\.** **Voom**
 ```{r voom, fig.width=6}
