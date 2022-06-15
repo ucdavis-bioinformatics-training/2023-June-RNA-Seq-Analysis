@@ -55,6 +55,14 @@ if (!any(rownames(installed.packages()) == "ggplot2")){
     BiocManager::install("ggplot2")
 }
 library(ggplot2)
+
+
+if (!any(rownames(installed.packages()) == "pathview")){
+  if (!requireNamespace("BiocManager", quietly = TRUE))
+      install.packages("BiocManager")
+  BiocManager::install("pathview")
+}
+library(pathview)
 ```
 
 ## Download the template Markdown workshop document and open it
