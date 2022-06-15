@@ -50,6 +50,11 @@ if (!any(rownames(installed.packages()) == "RColorBrewer")){
     BiocManager::install("RColorBrewer")
 }
 library(RColorBrewer)
+
+if (!any(rownames(installed.packages()) == "ggplot2")){
+    BiocManager::install("ggplot2")
+}
+library(ggplot2)
 ```
 
 ## Download the template Markdown workshop document and open it
