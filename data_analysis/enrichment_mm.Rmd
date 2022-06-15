@@ -14,16 +14,11 @@ Load libraries
 library(topGO)
 library(KEGGREST)
 library(org.Mm.eg.db)
-
-if (!any(rownames(installed.packages()) == "pathview")){
-  if (!requireNamespace("BiocManager", quietly = TRUE))
-      install.packages("BiocManager")
-  BiocManager::install("pathview")
-}
 library(pathview)
+library(ggplot2)
 ```
 
-Files for examples created in the DE analysis
+Files for examples were created in the DE analysis.
 
 ## Gene Ontology (GO) Enrichment
 
@@ -223,7 +218,7 @@ head(outdat)
 
 The Wilcoxon rank-sum test is the nonparametric analogue of the two-sample t-test.  It compares the ranks of observations in two groups.  It is more powerful than the Kolmogorov-Smirnov test.
 
-**2\.** Plotting Pathways
+**3\.** Plotting Pathways
 ```{r}
 foldChangeList <- tmp$logFC
 xx <- as.list(org.Mm.egENSEMBL2EG)
@@ -238,6 +233,15 @@ mmu04380 <- pathview(gene.data  = foldChangeList,
 
 ![](mmu04380.pathview.png)
 
+### Barplot of p-values for top pathways
+A barplot of -log10(p-value) for the top pathways can be used for any type of enrichment analysis.
+
+```{r}
+plotdat <- outdat[1:10,]
+plotdat$nice.name <- gsub(" - Mus musculus (house mouse)", "", plotdat$pathway.name, fixed = TRUE)
+
+ggplot(plotdat, aes(x = -log10(p.value), y = reorder(nice.name, -log10(p.value)), fill = Annotated)) + geom_bar(stat = "identity") + labs(x = "-log10(P-Value)", y = NULL, fill = "# Genes") + scale_fill_gradient(low = "red", high = "blue")
+```
 
 ```{r}
 sessionInfo()

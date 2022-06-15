@@ -88,16 +88,11 @@ Load libraries
 library(topGO)
 library(KEGGREST)
 library(org.Mm.eg.db)
-
-if (!any(rownames(installed.packages()) == "pathview")){
-  if (!requireNamespace("BiocManager", quietly = TRUE))
-      install.packages("BiocManager")
-  BiocManager::install("pathview")
-}
 library(pathview)
+library(ggplot2)
 ```
 
-Files for examples created in the DE analysis
+Files for examples were created in the DE analysis.
 
 ## Gene Ontology (GO) Enrichment
 
@@ -281,7 +276,6 @@ submitButton1.addEventListener('click', function() {showResults(myQuestions1, qu
 
 
 ## KEGG Pathway Enrichment Testing With KEGGREST
-
 KEGG, the Kyoto Encyclopedia of Genes and Genomes (https://www.genome.jp/kegg/), provides assignment of genes for many organisms into pathways.
 
 We will access KEGG pathway assignments for mouse through the KEGGREST Bioconductor package, and then use some homebrew code for enrichment testing.
@@ -343,9 +337,8 @@ head(outdat)
 
 The Wilcoxon rank-sum test is the nonparametric analogue of the two-sample t-test.  It compares the ranks of observations in two groups.  It is more powerful than the Kolmogorov-Smirnov test.
 
-**2\.** Plotting Pathways
+**3\.** Plotting Pathways
 ```{r}
-tmp <- read.delim(infile)
 foldChangeList <- tmp$logFC
 xx <- as.list(org.Mm.egENSEMBL2EG)
 names(foldChangeList) <- xx[sapply(strsplit(tmp$Gene,split="\\."),"[[", 1L)]
@@ -358,6 +351,16 @@ mmu04380 <- pathview(gene.data  = foldChangeList,
 ```
 
 ![](mmu04380.pathview.png)
+
+### Barplot of p-values for top pathways
+A barplot of -log10(p-value) for the top pathways can be used for any type of enrichment analysis.
+
+```{r}
+plotdat <- outdat[1:10,]
+plotdat$nice.name <- gsub(" - Mus musculus (house mouse)", "", plotdat$pathway.name, fixed = TRUE)
+
+ggplot(plotdat, aes(x = -log10(p.value), y = reorder(nice.name, -log10(p.value)), fill = Annotated)) + geom_bar(stat = "identity") + labs(x = "-log10(P-Value)", y = NULL, fill = "# Genes") + scale_fill_gradient(low = "red", high = "blue")
+```
 
 ## Quiz 2
 
@@ -389,7 +392,7 @@ myQuestions2 = [
     correctAnswer: "c"
   },
   {
-      question: "Make a pathview diagram for mmu04621, and locate the file mmu04621.pathview.png on your computer.  What sign does the log fold change for p38 have?",
+      question: "Make a pathview diagram for mmu05171, and locate the file mmu05171.pathview.png on your computer.  What sign does the log fold change for MAPK have?",
     answers: {
       a: "Positive",
       b: "Negative"
