@@ -26,12 +26,12 @@ library(viridis)
 # see salmon_raw.slurm, salmon.slurm, star_raw.slurm, star.slurm
 
 # Read in star counts:
-star.counts.raw <- read.delim("../datasets/rnaseq_workshop_counts_raw_mm.txt", row.names = 1)
-star.counts     <- read.delim("../datasets/rnaseq_workshop_counts_mm.txt", row.names = 1)
+star.counts.raw <- read.delim("../datasets/rnaseq_workshop_counts_raw.txt", row.names = 1)
+star.counts     <- read.delim("../datasets/rnaseq_workshop_counts.txt", row.names = 1)
 
 # Read salmon.counts:
-salmon.counts.raw <- read.delim("../datasets/rnaseq_salmon_workshop_counts_raw_mm.txt", row.names = 1)
-salmon.counts     <- read.delim("../datasets/rnaseq_salmon_workshop_counts_mm.txt", row.names = 1)
+salmon.counts.raw <- read.delim("../datasets/rnaseq_salmon_workshop_counts_raw.txt", row.names = 1)
+salmon.counts     <- read.delim("../datasets/rnaseq_salmon_workshop_counts.txt", row.names = 1)
 ```
 
 ```{r rename_rows_and_columns, include = F}
