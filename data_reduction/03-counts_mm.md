@@ -5,8 +5,8 @@ This document assumes [alignment](./alignment.md) has been completed.
 **IF for some reason it didn't finish, is corrupted or you missed the session, you can copy over a completed copy.**
 
 ```bash
-cp -r /share/biocore/workshops/2022_mRNAseq_June/02-STAR_alignment /share/biocore/workshop/mrnaseq_workshop/$USER/rnaseq_example/.
-cp  /share/biocore/workshops/2022_mRNAseq_June/summary_star_alignments.txt /share/biocore/workshop/mrnaseq_workshop/$USER/rnaseq_example/.
+cp -r /share/biocore/workshops/2022_mRNASeq_June/02-STAR_alignment /share/workshop/mrnaseq_workshop/$USER/rnaseq_example/.
+cp  /share/biocore/workshops/2022_mRNASeq_June/summary_star_alignments.txt /share/workshop/mrnaseq_workshop/$USER/rnaseq_example/.
 ```
 
 In this section, we will collate all of the count data into one file for analysis in R.
@@ -19,7 +19,7 @@ In this section, we will collate all of the count data into one file for analysi
 1. First lets make sure we are where we are supposed to be.
 
     ```bash
-    cd /share/biocore/workshop/mrnaseq_workshop/$USER/rnaseq_example
+    cd /share/workshop/mrnaseq_workshop/$USER/rnaseq_example
     ```
 
 1. First, go back to your 02-STAR_alignment directory. Let's use a wildcard to list all of the counts files from all of the STAR alignment directories:
@@ -73,7 +73,7 @@ In this section, we will collate all of the count data into one file for analysi
     This command takes all the files that we listed in step 1 and loops through them, one by one, and for every iteration, assigns the filename to the '${sample}' variable. Also, for every iteration, it runs whatever commands are between the 'do' and 'done'.... and every iteration the value of '${sample}' changes. The semi-colons separate the parts of the loop. The 'echo' command just prints the value of $x to the screen... in this case just the filename. However, instead, we will use our previously created command, but with ${sample} instead of the filename, and adding a few things:
 
     ```bash
-    cd /share/biocore/workshop/mrnaseq_workshop/$USER/rnaseq_example
+    cd /share/workshop/mrnaseq_workshop/$USER/rnaseq_example
     mkdir 03-Counts
     mkdir 03-Counts/tmp
     for sample in `cat samples.txt`; do \
@@ -129,8 +129,8 @@ In this section, we will collate all of the count data into one file for analysi
     ```bash
     mkdir -p ~/rnaseq_workshop
     cd ~/rnaseq_workshop
-    scp [your_username]@tadpole.genomecenter.ucdavis.edu:/share/biocore/workshop/mrnaseq_workshop/[your_username]/rnaseq_example/03-Counts/rnaseq_workshop_counts.txt .
-    scp [your_username]@tadpole.genomecenter.ucdavis.edu:/share/biocore/workshop/mrnaseq_workshop/[your_username]/rnaseq_example/samples.txt .
+    scp [your_username]@tadpole.genomecenter.ucdavis.edu:/share/workshop/mrnaseq_workshop/[your_username]/rnaseq_example/03-Counts/rnaseq_workshop_counts.txt .
+    scp [your_username]@tadpole.genomecenter.ucdavis.edu:/share/workshop/mrnaseq_workshop/[your_username]/rnaseq_example/samples.txt .
     ```
 
 
