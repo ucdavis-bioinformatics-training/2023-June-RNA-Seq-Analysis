@@ -58,8 +58,6 @@ library(ggplot2)
 
 
 if (!any(rownames(installed.packages()) == "pathview")){
-  if (!requireNamespace("BiocManager", quietly = TRUE))
-      install.packages("BiocManager")
   BiocManager::install("pathview")
 }
 library(pathview)
