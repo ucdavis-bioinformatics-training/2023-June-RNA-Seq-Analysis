@@ -2,31 +2,31 @@
 
 All posted times are **Pacific** time zone. At least one break will be provided each morning and afternoon.
 
-### Monday, September 13
+### Monday, August 1st
 
 |:----------- |:------------------- |
 |**8:50 am**  | Zoom session starts |
 |**5:00 pm** | Zoom session ends |
 
-### Tuesday, September 14
+### Tuesday, August 2
 
 |:----------- |:------------------- |
 |**8:50 am**  | Zoom session starts |
 |**5:00 pm** | Zoom session ends |
 
-### Wednesday, September 15
+### Wednesday, August 3
 
 |:----------- |:------------------- |
 |**8:50 am**  | Zoom session starts |
 |**5:00 pm** | Zoom session ends |
 
-### Thursday, September 16
+### Thursday, August 4
 
 |:----------- |:------------------- |
 |**8:50 am**  | Zoom session starts |
 |**5:00 pm** | Zoom session ends |
 
-### Friday, September 17
+### Friday, August 5
 
 |:----------- |:------------------- |
 |**8:50 am**  | Zoom session starts |
