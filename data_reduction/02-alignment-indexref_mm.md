@@ -68,14 +68,14 @@
 
     cd ${outpath}
 
-#   wget https://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_mouse/release_M29/GRCm39.primary_assembly.genome.fa.gz
-#   gunzip GRCm39.primary_assembly.genome.fa.gz
-#   FASTA="../GRCm39.primary_assembly.genome.fa"
+    #wget https://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_mouse/release_M29/GRCm39.primary_assembly.genome.fa.gz
+    #gunzip GRCm39.primary_assembly.genome.fa.gz
+    #FASTA="../GRCm39.primary_assembly.genome.fa"
     FASTA="/share/workshop/mrnaseq_workshop/Data/GRCm39.primary_assembly.genome.fa"
 
-#   wget https://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_mouse/release_M29/gencode.vM29.primary_assembly.annotation.gtf.gz
-#   gunzip gencode.vM29.primary_assembly.annotation.gtf.gz
-#   GTF="../gencode.vM29.primary_assembly.annotation.gtf"
+    #wget https://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_mouse/release_M29/gencode.vM29.primary_assembly.annotation.gtf.gz
+    #gunzip gencode.vM29.primary_assembly.annotation.gtf.gz
+    #GTF="../gencode.vM29.primary_assembly.annotation.gtf"
     GTF="/share/workshop/mrnaseq_workshop/Data/gencode.vM29.primary_assembly.annotation.gtf"
 
     mkdir star.overlap100.gencode.M29
