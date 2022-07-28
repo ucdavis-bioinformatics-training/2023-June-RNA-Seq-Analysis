@@ -3,8 +3,8 @@
 *This document assumes [preproc htstream](./preproc_htstream.md) has been completed.*
 **IF** for some reason it didn't finish, is corrupted or you missed the session, you can link over a completed copy
 ```
-cp -r /share/biocore/workshops/2022_mRNASeq_June/HTS_testing /share/workshop/mrnaseq_workshop/$USER/rnaseq_example/.
-ln -s /share/biocore/workshops/2022_mRNASeq_June/01-HTS_Preproc /share/workshop/mrnaseq_workshop/$USER/rnaseq_example/.
+cp -r /share/biocore/workshops/2022_mRNASeq/HTS_testing /share/workshop/mrnaseq_workshop/$USER/rnaseq_example/.
+ln -s /share/biocore/workshops/2022_mRNASeq/01-HTS_Preproc /share/workshop/mrnaseq_workshop/$USER/rnaseq_example/.
 ```
 
 ## Salmon Aligner
@@ -103,7 +103,7 @@ ln -s /share/biocore/workshops/2022_mRNASeq_June/01-HTS_Preproc /share/workshop/
     **IF for some reason it didn't finish, is corrupted, or you missed the session, you can _link_ over a completed copy.**
 
     ```bash
-    ln -s /share/biocore/workshops/2022_mRNASeq_June/References/salmon_gencode.vM29.index /share/workshop/mrnaseq_workshop/$USER/rnaseq_example/References/.
+    ln -s /share/biocore/workshops/2022_mRNASeq/References/salmon_gencode.vM29.index /share/workshop/mrnaseq_workshop/$USER/rnaseq_example/References/.
     ```
 ## Alignments
 
