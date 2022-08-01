@@ -811,7 +811,7 @@ mmu04380 <- pathview(gene.data  = foldChangeList,
 
 <div class='r_output'> 'select()' returned 1:1 mapping between keys and columns
 </div>
-<div class='r_output'> Info: Working in directory C:/Users/bpdurbin/Desktop/2022-June-RNA-Seq-Analysis/data_analysis
+<div class='r_output'> Info: Working in directory C:/Users/bpdurbin/Desktop/2022-August-RNA-Seq-Analysis/data_analysis
 </div>
 <div class='r_output'> Info: Writing image file mmu04380.pathview.png
 </div>
