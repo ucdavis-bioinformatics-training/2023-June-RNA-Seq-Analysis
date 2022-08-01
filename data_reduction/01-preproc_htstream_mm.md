@@ -565,7 +565,7 @@ We can now run the preprocessing routine across all samples on the real data usi
 
 ```bash
 cd /share/workshop/mrnaseq_workshop/$USER/rnaseq_example  # We'll run this from the main directory
-wget https://ucdavis-bioinformatics-training.github.io/2022-June-RNA-Seq-Analysis/software_scripts/scripts/hts_preproc.slurm
+wget https://ucdavis-bioinformatics-training.github.io/2022-August-RNA-Seq-Analysis/software_scripts/scripts/hts_preproc.slurm
 less hts_preproc.slurm
 ```
 
