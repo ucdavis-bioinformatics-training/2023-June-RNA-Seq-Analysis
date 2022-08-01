@@ -781,7 +781,7 @@ Finally lets use [MultiQC](https://multiqc.info/) to generate a summary of our o
 ```bash
 ## Run multiqc to collect statistics and create a report:
 cd /share/workshop/mrnaseq_workshop/$USER/rnaseq_example
-module load multiqc/htstream.1.13.dev0_beta
+module load multiqc/htstream.1.10.dev0
 mkdir -p 02-HTS_multiqc_report
 multiqc -i HTSMultiQC-cleaning-report -o 02-HTS_multiqc_report ./01-HTS_Preproc
 ```
