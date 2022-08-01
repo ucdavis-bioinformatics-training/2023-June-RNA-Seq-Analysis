@@ -20,7 +20,7 @@ outpath="References"
 mkdir -p ${outpath}
 cd ${outpath}
 
-wget https://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_mouse/release_M29/gencode.vM29.transcripts.fa.gz
+#wget https://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_mouse/release_M29/gencode.vM29.transcripts.fa.gz
 zcat gencode.vM29.transcripts.fa.gz |cat - GRCm39.primary_assembly.genome.fa > decoy.aware.gencode.vM29.transcripts.fa
 grep "^>" GRCm39.primary_assembly.genome.fa |cut -d " " -f 1 > decoys.txt
 sed -i -e 's/>//g' decoys.txt
