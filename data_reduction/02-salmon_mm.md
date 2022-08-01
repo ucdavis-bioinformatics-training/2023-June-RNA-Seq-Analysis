@@ -40,7 +40,7 @@ ln -s /share/biocore/workshops/2022_mRNASeq/01-HTS_Preproc /share/workshop/mrnas
 1. First we need to index the transcriptome for salmon. Lets pull down a slurm script to get and index the mouse GENCODE version of the transcriptome.
 
     ```bash
-    wget https://raw.githubusercontent.com/ucdavis-bioinformatics-training/2022-June-RNA-Seq-Analysis/master/software_scripts/scripts/salmon_index.slurm
+    wget https://raw.githubusercontent.com/ucdavis-bioinformatics-training/2022-August-RNA-Seq-Analysis/master/software_scripts/scripts/salmon_index.slurm
     less salmon_index.slurm
     ```
 
@@ -140,7 +140,7 @@ ln -s /share/biocore/workshops/2022_mRNASeq/01-HTS_Preproc /share/workshop/mrnas
 
     ```bash
     cd /share/workshop/mrnaseq_workshop/$USER/rnaseq_example  # We'll run this from the main directory
-    wget https://raw.githubusercontent.com/ucdavis-bioinformatics-training/2022-June-RNA-Seq-Analysis/master/software_scripts/scripts/salmon.slurm
+    wget https://raw.githubusercontent.com/ucdavis-bioinformatics-training/2022-August-RNA-Seq-Analysis/master/software_scripts/scripts/salmon.slurm
     less salmon.slurm
     ```
 
@@ -251,7 +251,7 @@ ln -s /share/biocore/workshops/2022_mRNASeq/01-HTS_Preproc /share/workshop/mrnas
 
     ```bash
     cd /share/workshop/mrnaseq_workshop/$USER/rnaseq_example  # We'll run this from the main directory
-    wget https://raw.githubusercontent.com/ucdavis-bioinformatics-training/2022-June-RNA-Seq-Analysis/master/software_scripts/scripts/salmon_stats.R
+    wget https://raw.githubusercontent.com/ucdavis-bioinformatics-training/2022-August-RNA-Seq-Analysis/master/software_scripts/scripts/salmon_stats.R
 	module load R
 	R CMD BATCH salmon_stats.R
     ```

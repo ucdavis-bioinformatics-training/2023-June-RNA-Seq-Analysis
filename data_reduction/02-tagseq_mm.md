@@ -5,7 +5,7 @@
 3′ TagSeq is a protocol to generate low-cost and exceptionally low-noise gene expression profiling data.
 
 <p align = "center">
-<img src="https://raw.githubusercontent.com/ucdavis-bioinformatics-training/2022-June-RNA-Seq-Analysis/master/data_reduction/filetypes_figures/tagseq.png" alt="tagseq_protocol" width="600px"/>
+<img src="https://raw.githubusercontent.com/ucdavis-bioinformatics-training/2022-August-RNA-Seq-Analysis/master/data_reduction/filetypes_figures/tagseq.png" alt="tagseq_protocol" width="600px"/>
 </p>
 
 <p align = "right" style="font-family:Times;font-size:12px;">
@@ -16,7 +16,7 @@ Weng, etc., Methods Mol Biol. 2022;2398:151-172. doi: 10.1007/978-1-0716-1912-4_
 The comparison of the traditional RNASeq profile and TagSeq across gene annotations.
 
 <p align = "center">
-<img src="https://raw.githubusercontent.com/ucdavis-bioinformatics-training/2022-June-RNA-Seq-Analysis/master/data_reduction/filetypes_figures/lexo.png" alt="tagseq_coverage" width="400px"/>
+<img src="https://raw.githubusercontent.com/ucdavis-bioinformatics-training/2022-August-RNA-Seq-Analysis/master/data_reduction/filetypes_figures/lexo.png" alt="tagseq_coverage" width="400px"/>
 </p>
 
 <p align = "right" style="font-family:Times;font-size:12px;">
