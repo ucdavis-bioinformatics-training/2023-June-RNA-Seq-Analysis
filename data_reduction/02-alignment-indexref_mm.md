@@ -121,5 +121,5 @@
 
     ```bash
     rm -rf /share/biocore/workshop/mrnaseq_workshop/$USER/rnaseq_example/References/star.overlap100.gencode.M29
-    cp -r /share/biocore/workshops/2022_mRNAseq/References/star.overlap100.gencode.M29 /share/biocore/workshop/mrnaseq_workshop/$USER/rnaseq_example/References/.
+    cp -r /share/biocore/workshops/2022_mRNASeq/References/star.overlap100.gencode.M29 /share/biocore/workshop/mrnaseq_workshop/$USER/rnaseq_example/References/.
     ```
