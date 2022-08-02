@@ -4,7 +4,7 @@
 1. First lets make sure we are where we are supposed to be and that the References directory is available.
 
     ```bash
-    cd /share/biocore/workshop/mrnaseq_workshop/$USER/rnaseq_example
+    cd /share/workshop/mrnaseq_workshop/$USER/rnaseq_example
     mkdir -p slurmout
     ```
 
@@ -120,6 +120,6 @@
     **IF For the sake of time, or for some reason it didn't finish, is corrupted, or you missed the session, you can link over a completed copy.** If the indexing job is still running, it should be canceled first.
 
     ```bash
-    rm -rf /share/biocore/workshop/mrnaseq_workshop/$USER/rnaseq_example/References/star.overlap100.gencode.M29
-    cp -r /share/biocore/workshops/2022_mRNASeq/References/star.overlap100.gencode.M29 /share/biocore/workshop/mrnaseq_workshop/$USER/rnaseq_example/References/.
+    rm -rf /share/workshop/mrnaseq_workshop/$USER/rnaseq_example/References/star.overlap100.gencode.M29
+    cp -r /share/biocore/workshops/2022_mRNASeq/References/star.overlap100.gencode.M29 /share/workshop/mrnaseq_workshop/$USER/rnaseq_example/References/.
     ```
