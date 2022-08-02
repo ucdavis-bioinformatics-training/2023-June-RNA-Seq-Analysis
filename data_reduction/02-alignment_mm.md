@@ -47,7 +47,7 @@ ln -s /share/workshop/mrnaseq_workshop/jli/rnaseq_example/01-HTS_Preproc .
   * Generally, multimappers are discounted in variant detection, and are often discounted in counting applications (like RNA-Seq ... would “cancel” out anyway).
   * Note: multimapper “rescue” in some algorithms (RSEM, eXpress).
 * Duplicates:
-  * Reads or read pairs arising from the same original library fragment, either during library preparation (PCR duplicates).
+  * Reads or read pairs arising from the same original library fragment, either during library preparation (PCR duplicates) or during sequencing (optical duplicates).
   * Generally, duplicates can only be detected reliably with paired-end sequencing. If PE, they’re discounted in variant detection, and discounted in counting applications (like RNA-Seq).
 * Clipping vs Splicing  
   * soft-clipped: bases in 5' and 3' of the read are NOT part of the alignment.
