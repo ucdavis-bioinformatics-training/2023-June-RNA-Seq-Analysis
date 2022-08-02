@@ -690,8 +690,8 @@ The JSON files output by HTStream provide this type of information.
 
     ```bash
     cd 01-HTS_Preproc
-    ls */*R1* | wc -l
-    ls */*R2* | wc -l
+    ls */*_R1* | wc -l
+    ls */*_R2* | wc -l
     ```
 
     *Did you get the answer you expected, why or why not?*
