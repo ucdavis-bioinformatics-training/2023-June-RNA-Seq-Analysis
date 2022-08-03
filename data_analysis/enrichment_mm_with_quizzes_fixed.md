@@ -779,7 +779,7 @@ head(outdat)
  289     mmu05160                       Hepatitis C - Mus musculus (house mouse)
  196     mmu04662 B cell receptor signaling pathway - Mus musculus (house mouse)
           p.value Annotated
- 300 1.464505e-10       171
+ 300 1.176677e-10       172
  169 5.084974e-10       105
  121 2.585792e-09       125
  293 6.055844e-09       121
@@ -811,7 +811,7 @@ mmu04380 <- pathview(gene.data  = foldChangeList,
 
 <div class='r_output'> 'select()' returned 1:1 mapping between keys and columns
 </div>
-<div class='r_output'> Info: Working in directory C:/Users/bpdurbin/Desktop/2022-August-RNA-Seq-Analysis/data_analysis
+<div class='r_output'> Info: Working in directory C:/Users/bpdurbin/Desktop/RNASeq_Aug_2022
 </div>
 <div class='r_output'> Info: Writing image file mmu04380.pathview.png
 </div>
@@ -886,7 +886,7 @@ submitButton2.addEventListener('click', function() {showResults(myQuestions2, qu
 sessionInfo()
 ```
 
-<div class='r_output'> R version 4.2.0 (2022-04-22 ucrt)
+<div class='r_output'> R version 4.2.1 (2022-06-23 ucrt)
  Platform: x86_64-w64-mingw32/x64 (64-bit)
  Running under: Windows 10 x64 (build 19044)
  
@@ -900,37 +900,36 @@ sessionInfo()
  [5] LC_TIME=English_United States.utf8    
  
  attached base packages:
- [1] grid      stats4    stats     graphics  grDevices utils     datasets 
+ [1] grid      stats4    stats     graphics  grDevices datasets  utils    
  [8] methods   base     
  
  other attached packages:
-  [1] Rgraphviz_2.40.0     ggplot2_3.3.6        pathview_1.36.0     
-  [4] org.Mm.eg.db_3.15.0  KEGGREST_1.36.2      topGO_2.48.0        
+  [1] Rgraphviz_2.40.0     ggplot2_3.3.6        pathview_1.31.3     
+  [4] org.Mm.eg.db_3.15.0  KEGGREST_1.36.3      topGO_2.48.0        
   [7] SparseM_1.81         GO.db_3.15.0         AnnotationDbi_1.58.0
  [10] IRanges_2.30.0       S4Vectors_0.34.0     Biobase_2.56.0      
  [13] graph_1.74.0         BiocGenerics_0.42.0 
  
  loaded via a namespace (and not attached):
-  [1] KEGGgraph_1.56.0       Rcpp_1.0.8.3           lattice_0.20-45       
+  [1] KEGGgraph_1.56.0       Rcpp_1.0.9             lattice_0.20-45       
   [4] png_0.1-7              Biostrings_2.64.0      utf8_1.2.2            
   [7] digest_0.6.29          R6_2.5.1               GenomeInfoDb_1.32.2   
- [10] RSQLite_2.2.14         evaluate_0.15          highr_0.9             
- [13] httr_1.4.3             pillar_1.7.0           zlibbioc_1.42.0       
- [16] rlang_1.0.2            curl_4.3.2             jquerylib_0.1.4       
- [19] blob_1.2.3             rmarkdown_2.14         labeling_0.4.2        
- [22] stringr_1.4.0          RCurl_1.98-1.7         bit_4.0.4             
- [25] munsell_0.5.0          compiler_4.2.0         xfun_0.31             
- [28] pkgconfig_2.0.3        htmltools_0.5.2        tidyselect_1.1.2      
- [31] tibble_3.1.7           GenomeInfoDbData_1.2.8 matrixStats_0.62.0    
+ [10] RSQLite_2.2.15         evaluate_0.15          highr_0.9             
+ [13] pillar_1.8.0           httr_1.4.3             zlibbioc_1.42.0       
+ [16] rlang_1.0.4            curl_4.3.2             rstudioapi_0.13       
+ [19] jquerylib_0.1.4        blob_1.2.3             rmarkdown_2.14        
+ [22] labeling_0.4.2         stringr_1.4.0          RCurl_1.98-1.8        
+ [25] bit_4.0.4              munsell_0.5.0          compiler_4.2.1        
+ [28] xfun_0.31              pkgconfig_2.0.3        htmltools_0.5.3       
+ [31] tibble_3.1.8           GenomeInfoDbData_1.2.8 matrixStats_0.62.0    
  [34] XML_3.99-0.10          fansi_1.0.3            withr_2.5.0           
- [37] dplyr_1.0.9            crayon_1.5.1           bitops_1.0-7          
- [40] jsonlite_1.8.0         gtable_0.3.0           lifecycle_1.0.1       
- [43] DBI_1.1.2              magrittr_2.0.3         scales_1.2.0          
- [46] cli_3.3.0              stringi_1.7.6          cachem_1.0.6          
- [49] farver_2.1.0           XVector_0.36.0         bslib_0.3.1           
- [52] generics_0.1.2         ellipsis_0.3.2         vctrs_0.4.1           
- [55] org.Hs.eg.db_3.15.0    tools_4.2.0            bit64_4.0.5           
- [58] glue_1.6.2             purrr_0.3.4            fastmap_1.1.0         
- [61] yaml_2.3.5             colorspace_2.0-3       memoise_2.0.1         
- [64] knitr_1.39             sass_0.4.1
+ [37] crayon_1.5.1           bitops_1.0-7           jsonlite_1.8.0        
+ [40] gtable_0.3.0           lifecycle_1.0.1        DBI_1.1.3             
+ [43] magrittr_2.0.3         scales_1.2.0           cli_3.3.0             
+ [46] stringi_1.7.8          cachem_1.0.6           farver_2.1.1          
+ [49] XVector_0.36.0         renv_0.15.5            bslib_0.4.0           
+ [52] vctrs_0.4.1            org.Hs.eg.db_3.15.0    tools_4.2.1           
+ [55] bit64_4.0.5            glue_1.6.2             fastmap_1.1.0         
+ [58] yaml_2.3.5             colorspace_2.0-3       memoise_2.0.1         
+ [61] knitr_1.39             sass_0.4.2
 </div>
