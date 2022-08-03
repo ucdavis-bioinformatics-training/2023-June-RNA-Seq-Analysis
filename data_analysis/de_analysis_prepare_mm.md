@@ -57,11 +57,15 @@ if (!any(rownames(installed.packages()) == "ggplot2")){
 library(ggplot2)
 
 
-if (!any(rownames(installed.packages()) == "pathview")){
-  BiocManager::install("pathview")
+if (!any(rownames(installed.packages()) == "devtools")){
+  BiocManager::install("devtools")
 }
-library(pathview)
+library(devtools)
+
+devtools::install_github("javadnoorb/pathview")
 ```
+
+Note about pathview: As of June 2022, the version of pathview on Bioconductor is (presumably temporarily) broken due to KEGG's move from http to https. Therefore, the instructions above install a patched version of pathview from Github.  
 
 ## Download the template Markdown workshop document and open it
 
