@@ -349,7 +349,7 @@ What does stranded and unstranded mean? Which is better and why? [Stranded vs Un
     echo "My SLURM_ARRAY_TASK_ID: " $SLURM_ARRAY_TASK_ID
 
     sample=`sed "${SLURM_ARRAY_TASK_ID}q;d" samples.txt`
-    REF="References/star.overlap100.gencode.M25"
+    REF="References/star.overlap100.gencode.M29"
 
     outpath='02-STAR_alignment'
     [[ -d ${outpath} ]] || mkdir ${outpath}
