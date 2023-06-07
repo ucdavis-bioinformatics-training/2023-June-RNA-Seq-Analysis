@@ -2,12 +2,12 @@
 
 __The mission of the Bioinformatics Core facility is to facilitate outstanding omics-scale research through these activities:__
 
- <img src="https://raw.githubusercontent.com/ucdavis-bioinformatics-training/2021-December-Metagenomics-and-Metatranscriptomics/master/base/welcome_figure1.png" alt="welcome_figure1" width="800px"/>
+ <img src="https://raw.githubusercontent.com/ucdavis-bioinformatics-training/2023-June-RNA-Seq-Analysis/master/base/welcome_figure1.png" alt="welcome_figure1" width="800px"/>
 
 ## Staff and Students
 Our team offers custom bioinformatics services to academic and private organizations. We have a strong academic background with a focus on cutting edge, open source software. We replicate standard analysis pipelines (best practices) when appropriate, and/or develop novel applications and pipelines when needed, however we always emphasize biological interpretation of the data.
 
- <img src="https://raw.githubusercontent.com/ucdavis-bioinformatics-training/2022-August-RNA-Seq-Analysis/master/base/staff.png" alt="welcome_figure1" width="800px"/>
+ <img src="https://raw.githubusercontent.com/ucdavis-bioinformatics-training/2023-June-RNA-Seq-Analysis/master/base/staff.png" alt="welcome_figure1" width="800px"/>
 
 
 ## Contacts
@@ -42,7 +42,7 @@ Workshop materials are all posted on github, and publicly available
 
 * This mRNAseq Workshop
 
-[https://ucdavis-bioinformatics-training.github.io/2022-August-RNA-Seq-Analysis/](https://ucdavis-bioinformatics-training.github.io/2022-August-RNA-Seq-Analysis/)
+[https://ucdavis-bioinformatics-training.github.io/2023-June-RNA-Seq-Analysis/](https://ucdavis-bioinformatics-training.github.io/2023-June-RNA-Seq-Analysis/)
 
 ## Workshop Goals
 

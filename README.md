@@ -1,8 +1,8 @@
 All documentation for the workshop is best viewed from the github.io pages
 
-[Documentation](https://ucdavis-bioinformatics-training.github.io/2022-August-RNA-Seq-Analysis/)
+[Documentation](https://ucdavis-bioinformatics-training.github.io/2023-June-RNA-Seq-Analysis/)
 
-August 1, 2022 - August 5, 2022, 9 a.m. - 5:00 p.m daily. **online learning**
+June 26, 2023 - June 30, 2023, 9 a.m. - 5:00 p.m daily. **online learning**
 
 Contact - UC Davis Bioinformatics Core, [training.bioinformatics@ucdavis.edu](mailto:training.bioinformatics@ucdavis.edu)
 
@@ -35,4 +35,4 @@ If you have any questions, please don’t hesitate to contact us at [training.bi
 
 ### Register
 
-Register for the [course](https://registration.genomecenter.ucdavis.edu/events/RNAseq_august_2022/).
+Register for the [course](https://registration.genomecenter.ucdavis.edu/events/RNAseq_june_2023/).
