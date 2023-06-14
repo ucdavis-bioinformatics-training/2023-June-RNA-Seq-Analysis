@@ -98,12 +98,9 @@ Because video is involved, we ask everyone to be respectful and we reserve the r
 
 Text based communication will be conducted via a Slack channel. Staff will be monitoring the Slack channel to answer questions (and schedule a Zoom break out room if needed). If you know the answer to someone else's question, feel free to answer it.
 
-
-Text based communication will be conducted via a Slack channel. Staff will be monitoring the Slack channel to answer questions (and schedule a Zoom break out room if needed). If you know the answer to someone else's question, feel free to answer it.
-
 [Learn more about how we use Slack in our workshops.](./slack)
 
 #### Patience
 
-We ask for a little more patience as this process is also new to us, but we are committed to providing you the best educational experience we can (under the current conditions).
+We ask for a little more patience as we have a wide background in workshop participants, but we are committed to providing you the best educational experience we can (under the current conditions).
 
