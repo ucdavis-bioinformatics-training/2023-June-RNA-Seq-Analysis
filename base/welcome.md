@@ -26,7 +26,7 @@ Our team offers custom bioinformatics services to academic and private organizat
 
 * Computing Issues, include but not limited to user account questions, equipment failure/malfunction, software install, software failures (not related to use).
 
-   [helpdesk@genomecenter.ucdavis.edu](mailto:helpdesk@genomecenter.ucdavis.edu)
+   [hpc-help@ucdavis.edu](mailto:hpc-help@ucdavis.edu)
 
 
 ## Workshop Materials
