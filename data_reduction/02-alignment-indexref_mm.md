@@ -10,7 +10,7 @@
 
 1. To align our data we will need the genome (fasta) and annotation (gtf) for mouse. There are many places to find them, but we are going to get them from the [GENCODE](https://www.gencodegenes.org/mouse/).
 
-    We need to first get the url for the genome and annotation gtf. For RNAseq we want to use the primary genome chromosomes and basic gene annotation. At the time of this workshop the current version of GENCODE is *M29* . You will want to update the scripts to use the current version.
+    We need to first get the url for the genome and annotation gtf. For RNAseq we want to use the primary genome chromosomes and basic gene annotation. At the time of this workshop the current version of GENCODE is *M32* . You will want to update the scripts to use the current version.
 
     We will need:
 
@@ -68,18 +68,18 @@
 
     cd ${outpath}
 
-    #wget https://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_mouse/release_M29/GRCm39.primary_assembly.genome.fa.gz
+    #wget https://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_mouse/release_M32/GRCm39.primary_assembly.genome.fa.gz
     #gunzip GRCm39.primary_assembly.genome.fa.gz
     #FASTA="../GRCm39.primary_assembly.genome.fa"
     FASTA="/share/workshop/mrnaseq_workshop/Data/GRCm39.primary_assembly.genome.fa"
 
-    #wget https://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_mouse/release_M29/gencode.vM29.primary_assembly.annotation.gtf.gz
-    #gunzip gencode.vM29.primary_assembly.annotation.gtf.gz
-    #GTF="../gencode.vM29.primary_assembly.annotation.gtf"
-    GTF="/share/workshop/mrnaseq_workshop/Data/gencode.vM29.primary_assembly.annotation.gtf"
+    #wget https://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_mouse/release_M32/gencode.vM32.primary_assembly.annotation.gtf.gz
+    #gunzip gencode.vM32.primary_assembly.annotation.gtf.gz
+    #GTF="../gencode.vM32.primary_assembly.annotation.gtf"
+    GTF="/share/workshop/mrnaseq_workshop/Data/gencode.vM32.primary_assembly.annotation.gtf"
 
-    mkdir star.overlap100.gencode.M29
-    cd star.overlap100.gencode.M29
+    mkdir star.overlap100.gencode.M32
+    cd star.overlap100.gencode.M32
 
     module load star/2.7.10a
 
@@ -103,7 +103,7 @@
 
     1. The script uses wget to download the fasta and GTF files from Gencode using the links you found earlier.
     1. Uncompresses them using gunzip.
-    1. Creates the star index directory [star.overlap100.gencode.M29].
+    1. Creates the star index directory [star.overlap100.gencode.M32].
     1. Change directory into the new star index directory. We run the star indexing command from inside the directory, for some reason star fails if you try to run it outside this directory.
     1. Run star in mode genomeGenerate.
 
@@ -115,11 +115,11 @@
     sbatch star_index.slurm
     ```
 
-    This step will take a couple hours. You can look at the [STAR documentation](https://github.com/alexdobin/STAR/blob/master/doc/STARmanual.pdf) while you wait. All of the output files will be written to the star index directory **star.overlap100.gencode.M29**.
+    This step will take a couple hours. You can look at the [STAR documentation](https://github.com/alexdobin/STAR/blob/master/doc/STARmanual.pdf) while you wait. All of the output files will be written to the star index directory **star.overlap100.gencode.M32**.
 
     **IF For the sake of time, or for some reason it didn't finish, is corrupted, or you missed the session, you can link over a completed copy.** If the indexing job is still running, it should be canceled first.
 
     ```bash
-    rm -rf /share/workshop/mrnaseq_workshop/$USER/rnaseq_example/References/star.overlap100.gencode.M29
-    cp -r /share/biocore/workshops/2022_mRNASeq/References/star.overlap100.gencode.M29 /share/workshop/mrnaseq_workshop/$USER/rnaseq_example/References/.
+    rm -rf /share/workshop/mrnaseq_workshop/$USER/rnaseq_example/References/star.overlap100.gencode.M32
+    cp -r /share/biocore/workshops/2022_mRNASeq/References/star.overlap100.gencode.M32 /share/workshop/mrnaseq_workshop/$USER/rnaseq_example/References/.
     ```
