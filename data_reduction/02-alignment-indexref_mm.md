@@ -19,7 +19,7 @@
 
     <img src="alignment_mm_figures/MM_genome_sequences.png" alt="MM_genome_sequences" width="80%" style="border:5px solid #ADD8E6;"/>
 
-    <img src="alignment_mm_figures/MM_comprehensive_gene_annotation.png" alt="MM_comprehensive_gene_annotation" width="80%" style="border:5px solid #ADD8E6;"/>
+    <img src="alignment_mm_figures/MM_basic_gene_annotation.png" alt="MM_basic_gene_annotation" width="80%" style="border:5px solid #ADD8E6;"/>
 
 1. We are going to use an aligner called ['STAR'](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3530905/) to align the data. Lets take a look at the help docs for star:
 
@@ -53,7 +53,7 @@
     #SBATCH --time=120
     #SBATCH --mem=40000 # Memory pool for all cores (see also --mem-per-cpu)
     #SBATCH --partition=production
-    #SBATCH --reservation=mrnaseq_workshop
+    #SBATCH --reservation=rnaseq_workshop
     #SBATCH --account=workshop
     #SBATCH --output=slurmout/star-index_%A.out # File to which STDOUT will be written
     #SBATCH --error=slurmout/star-index_%A.err # File to which STDERR will be written
