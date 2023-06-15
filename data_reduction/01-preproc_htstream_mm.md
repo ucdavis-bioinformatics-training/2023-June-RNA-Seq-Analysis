@@ -236,13 +236,13 @@ When building a new pipeline, it is almost always a good idea to use a small sub
 
     <div class="output">
     total 20M
-    drwxrwsr-x 2 shunter mrnaseq_workshop    8 Jul 27 13:44 .
-    drwxrwsr-x 8 shunter mrnaseq_workshop    9 Jul 27 13:37 ..
-    -rw-rw-r-- 1 shunter mrnaseq_workshop  40K Jul 27 13:44 mouse_110_WT_C.stats.json
-    -rw-rw-r-- 1 shunter mrnaseq_workshop 4.7M Jul 27 13:44 mouse_110_WT_C.stats_R1.fastq.gz
-    -rw-rw-r-- 1 shunter mrnaseq_workshop 5.0M Jul 27 13:44 mouse_110_WT_C.stats_R2.fastq.gz
-    -rw-rw-r-- 1 shunter mrnaseq_workshop 4.7M Jul 27 13:39 mouse_110_WT_C.subset_R1.fastq.gz
-    -rw-rw-r-- 1 shunter mrnaseq_workshop 5.0M Jul 27 13:39 mouse_110_WT_C.subset_R2.fastq.gz
+    drwxrwsr-x 2 jli workshop    7 Jun 15 15:08 .
+    drwxrwsr-x 8 jli workshop   32 Jun 15 15:06 ..
+    -rw-rw-r-- 1 jli workshop  40K Jun 15 15:07 mouse_110_WT_C.stats.json
+    -rw-rw-r-- 1 jli workshop 4.7M Jun 15 15:07 mouse_110_WT_C.stats_R1.fastq.gz
+    -rw-rw-r-- 1 jli workshop 5.0M Jun 15 15:07 mouse_110_WT_C.stats_R2.fastq.gz
+    -rw-rw-r-- 1 jli workshop 4.7M Jun 15 15:06 mouse_110_WT_C.subset_R1.fastq.gz
+    -rw-rw-r-- 1 jli workshop 5.0M Jun 15 15:06 mouse_110_WT_C.subset_R2.fastq.gz
     </div>
 
     * *Which files were generated from hts\_Stats?*
