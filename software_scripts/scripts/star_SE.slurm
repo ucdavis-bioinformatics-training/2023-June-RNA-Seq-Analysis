@@ -6,7 +6,7 @@
 #SBATCH --time=60
 #SBATCH --mem=32000 # Memory pool for all cores (see also --mem-per-cpu)
 #SBATCH --partition=production
-#SBATCH --reservation=rnaseq_workshop
+#SBATCH --reservation=rnaworkshop
 #SBATCH --account=workshop
 #SBATCH --array=1-16
 #SBATCH --output=slurmout/star_%A_%a.out # File to which STDOUT will be written
