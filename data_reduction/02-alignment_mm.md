@@ -17,7 +17,7 @@ To catch up to where we are:
 ```
 mkdir -p /share/workshop/mrnaseq_workshop/$USER/rnaseq_example
 cd /share/workshop/mrnaseq_workshop/$USER/rnaseq_example
-wget https://raw.githubusercontent.com/ucdavis-bioinformatics-training/2022-August-RNA-Seq-Analysis/master/software_scripts/scripts/star_index.slurm
+wget https://raw.githubusercontent.com/ucdavis-bioinformatics-training/2023-June-RNA-Seq-Analysis/master/software_scripts/scripts/star_index.slurm
 mkdir References
 [cp -r /share/workshop/mrnaseq_workshop/jli/rnaseq_example/References/star.overlap100.gencode.M29 References/]
 cp -r /share/workshop/mrnaseq_workshop/jli/rnaseq_example/HTS_testing .
@@ -326,7 +326,7 @@ What does stranded and unstranded mean? Which is better and why? [Stranded vs Un
 
     ```bash
     cd /share/workshop/mrnaseq_workshop/$USER/rnaseq_example  # We'll run this from the main directory
-    wget https://raw.githubusercontent.com/ucdavis-bioinformatics-training/2022-August-RNA-Seq-Analysis/master/software_scripts/scripts/star.slurm
+    wget https://raw.githubusercontent.com/ucdavis-bioinformatics-training/2023-June-RNA-Seq-Analysis/master/software_scripts/scripts/star.slurm
     less star.slurm
     ```
 
@@ -403,7 +403,7 @@ When you are done, type "q" to exit.
 
     ```bash
     cd /share/workshop/mrnaseq_workshop/$USER/rnaseq_example # We'll run this from the main directory
-    wget https://raw.githubusercontent.com/ucdavis-bioinformatics-training/2022-August-RNA-Seq-Analysis/master/software_scripts/scripts/star_stats.sh
+    wget https://raw.githubusercontent.com/ucdavis-bioinformatics-training/2023-June-RNA-Seq-Analysis/master/software_scripts/scripts/star_stats.sh
     bash star_stats.sh
     ```
 
