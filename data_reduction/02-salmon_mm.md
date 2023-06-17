@@ -25,9 +25,9 @@ ln -s /share/biocore/workshops/2022_mRNASeq/01-HTS_Preproc /share/workshop/mrnas
 
     We need to first get the urls for the and protein coding genes. For RNAseq we want to use the protein coding transcript sequences and basic gene annotation. At the time of this workshop the current version of GENCODE is *M32*. You will want to update the scripts to use the current version.
 
-    <img src="alignment_mm_figures/MM_primary_transcript_sequences.png" alt="mouse_gencode1" width="80%" style="border:5px solid #ADD8E6;"/>
+    <img src="alignment_mm_figures/MM_pc_transcript_sequences.png" alt="mouse_gencode1" width="80%" style="border:5px solid #ADD8E6;"/>
 
-    <img src="alignment_mm_figures/MM_comprehensive_gene_annotation.png" alt="mouse_gencode2" width="80%" style="border:5px solid #ADD8E6;"/>
+    <img src="alignment_mm_figures/MM_basic_gene_annotation.png" alt="mouse_gencode2" width="80%" style="border:5px solid #ADD8E6;"/>
 
 1. Lets take a look at the help docs for salmon and its subcommands as well:
 
