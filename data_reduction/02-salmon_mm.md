@@ -67,7 +67,7 @@ ln -s /share/biocore/workshops/2022_mRNASeq/01-HTS_Preproc /share/workshop/mrnas
     cd ${outpath}
 
     wget https://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_mouse/release_M32/gencode.vM32.transcripts.fa.gz
-    zcat gencode.vM32.transcripts.fa.gz |cat - GRCm39.primary_assembly.genome.fa > decoy.aware.gencode.vM32.transcripts.fa
+    zcat gencode.vM32.pc_transcripts.fa.gz |cat - GRCm39.primary_assembly.genome.fa > decoy.aware.gencode.vM32.transcripts.fa
     grep "^>" GRCm39.primary_assembly.genome.fa |cut -d " " -f 1 > decoys.txt
     sed -i -e 's/>//g' decoys.txt
 
