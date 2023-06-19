@@ -1,6 +1,6 @@
 # Retreiving Annotation via biomart
 
-Annotation from [BioMart](https://uswest.ensembl.org/biomart/martview/)  with Ensembl names is most flexible way to retrieve tabular annotation for an organism.
+Annotation from [BioMart](https://useast.ensembl.org/biomart/martview/)  with Ensembl names is most flexible way to retrieve tabular annotation for an organism.
 
 1. The [Biomart](https://useast.ensembl.org/biomart/martview/) start page should look like ...
 
