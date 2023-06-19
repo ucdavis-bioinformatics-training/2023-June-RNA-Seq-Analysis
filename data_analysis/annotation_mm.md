@@ -2,7 +2,7 @@
 
 Annotation from [BioMart](https://uswest.ensembl.org/biomart/martview/)  with Ensembl names is most flexible way to retrieve tabular annotation for an organism.
 
-1. The [Biomart](https://uswest.ensembl.org/biomart/martview/) start page should look like ...
+1. The [Biomart](https://useast.ensembl.org/biomart/martview/) start page should look like ...
 
 <img src="annotation_mm_figures/annotation_figures1.png" alt="annotation_figures1" width="80%" style="border:5px solid #ADD8E6;"/>
 
