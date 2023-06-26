@@ -26,10 +26,15 @@ if (!any(rownames(installed.packages()) == "topGO")){
 }
 library(topGO)
 
-if (!any(rownames(installed.packages()) == "KEGGREST")){
-  BiocManager::install("KEGGREST")
+if (!any(rownames(installed.packages()) == "clusterProfiler")){
+  BiocManager::install("clusterProfiler")
 }
-library(KEGGREST)
+library(clusterProfiler)
+
+if (!any(rownames(installed.packages()) == "dplyr")){
+  BiocManager::install("dplyr")
+}
+library(dplyr)
 
 if (!any(rownames(installed.packages()) == "Rgraphviz")){
   BiocManager::install("Rgraphviz")
