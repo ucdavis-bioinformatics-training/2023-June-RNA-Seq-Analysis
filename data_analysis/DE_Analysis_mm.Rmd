@@ -9,7 +9,7 @@ output:
 # Differential Gene Expression Analysis in R
 
 * Differential Gene Expression (DGE) between conditions is determined from count data
-* Generally speaking differential expression analysis is performed in a very similar manner to DNA microarrays, once normalization and transformations have been performed.
+* Generally speaking differential expression analysis is performed in a very similar manner to metabolomics, proteomics, or DNA microarrays, once normalization and transformations have been performed.
 
 A lot of RNA-seq analysis has been done in R and so there are many packages available to analyze and view this data. Two of the most commonly used are:
 * DESeq2, developed by Simon Anders (also created htseq) in Wolfgang Huber’s group at EMBL
@@ -66,7 +66,7 @@ d0 <- DGEList(counts)
   
 **1a\.** Read in Annotation
 ```{r read_annotation}
-anno <- read.delim("ensembl_mm_106.tsv",as.is=T)
+anno <- read.delim("ensembl_mm_109.txt",as.is=T)
 dim(anno)
 head(anno)
 tail(anno)

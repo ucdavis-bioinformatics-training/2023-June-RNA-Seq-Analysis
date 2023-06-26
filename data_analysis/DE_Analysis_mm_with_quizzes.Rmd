@@ -82,7 +82,7 @@ function showResults(myq, qc, rc){
 # Differential Gene Expression Analysis in R
 
 * Differential Gene Expression (DGE) between conditions is determined from count data
-* Generally speaking differential expression analysis is performed in a very similar manner to DNA microarrays, once normalization and transformations have been performed.
+* Generally speaking differential expression analysis is performed in a very similar manner to metabolomics, proteomics, or DNA microarrays, once normalization and transformations have been performed.
 
 A lot of RNA-seq analysis has been done in R and so there are many packages available to analyze and view this data. Two of the most commonly used are:
 * DESeq2, developed by Simon Anders (also created htseq) in Wolfgang Huber’s group at EMBL
@@ -139,7 +139,7 @@ d0 <- DGEList(counts)
   
 **1a\.** Read in Annotation
 ```{r read_annotation}
-anno <- read.delim("ensembl_mm_106.tsv",as.is=T)
+anno <- read.delim("ensembl_mm_109.txt", as.is = TRUE)
 dim(anno)
 head(anno)
 tail(anno)
@@ -290,6 +290,7 @@ We use the `cpm` function with log=TRUE to obtain log-transformed normalized exp
 logcpm <- cpm(d, prior.count=2, log=TRUE)
 write.table(logcpm,"rnaseq_workshop_normalized_counts.txt",sep="\t",quote=F)
 ```
+
 
 ## Quiz 2
 
@@ -693,49 +694,6 @@ The limma users' guide has great details on model specification.
 
 * [edgeR](http://bioconductor.org/packages/release/bioc/vignettes/edgeR/inst/doc/edgeRUsersGuide.pdf)
 
-## Quiz 4
-
-<div id="quiz4" class="quiz"></div>
-<button id="submit4">Submit Quiz</button>
-<div id="results4" class="output"></div>
-<script>
-quizContainer4 = document.getElementById('quiz4');
-resultsContainer4 = document.getElementById('results4');
-submitButton4 = document.getElementById('submit4');
-
-myQuestions4 = [
-  {
-      question: "For the model ~0 + group + mouse, what coefficients would you use in makeContrasts if you wanted to compare genotypes for the NC cell type",
-    answers: {
-      a: "groupWT.C - groupKOMIR150.C",
-      b: "groupWT.NC + groupKOMIR150.C",
-      c: "groupWT.NC - groupKOMIR150.NC",
-    },
-    correctAnswer: "c"
-  },
-  {
-    question: "For the model ~0 + group + mouse, how many genes are differentially expressed between WT NC and KOMIR150 NC?",
-    answers: {
-      a: "`r mm.1 <- model.matrix(~0 + group + mouse); y.1 <- voom(d, mm.1); fit.1 <- lmFit(y.1, mm.1); tmp.1 <- contrasts.fit(fit.1, contrasts = makeContrasts(groupWT.NC - groupKOMIR150.NC, levels = colnames(coef(fit.1)))); tmp.1 <- eBayes(tmp.1); format(length(which(topTable(tmp.1, n = Inf, sort.by = "P")$adj.P.Val < 0.05)), big.mark = ",")`",
-      b: "`r mm.1 <- model.matrix(~0 + group + mouse); y.1 <- voom(d, mm.1); fit.1 <- lmFit(y.1, mm.1); tmp.1 <- contrasts.fit(fit.1, contrasts = makeContrasts(groupWT.C - groupKOMIR150.C, levels = colnames(coef(fit.1)))); tmp.1 <- eBayes(tmp.1); format(length(which(topTable(tmp.1, n = Inf, sort.by = "P")$adj.P.Val < 0.05)), big.mark = ",")`",
-      c: "`r mm.1 <- model.matrix(~0 + group + mouse); y.1 <- voom(d, mm.1); fit.1 <- lmFit(y.1, mm.1); tmp.1 <- contrasts.fit(fit.1, contrasts = makeContrasts(groupWT.C - groupWT.NC, levels = colnames(coef(fit.1)))); tmp.1 <- eBayes(tmp.1); format(length(which(topTable(tmp.1, n = Inf, sort.by = "P")$adj.P.Val < 0.05)), big.mark = ",")`",
-    },
-    correctAnswer: "a"
-  },
-  {
-    question: "Suppose you have a variable in your metadata called batch that shows the RNA extraction batch.  How would you change the model ~0 + group + mouse to adjust for batch?",
-    answers: {
-      a: "Change the formula in model.matrix() to ~0 + group + mouse + batch",
-      b: "Change the formula in model.matrix() to ~0 + group*batch + mouse",
-      c: "Change the coefficients in makeContrasts() to groupWT.C - groupKOMIR150.C - batch"
-    },
-    correctAnswer: "a"
-  }
-];
-
-buildQuiz(myQuestions4, quizContainer4);
-submitButton4.addEventListener('click', function() {showResults(myQuestions4, quizContainer4, resultsContainer4);});
-</script>
 
 # Simple plotting
 
