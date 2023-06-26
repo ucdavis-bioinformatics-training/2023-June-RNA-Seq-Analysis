@@ -75,7 +75,7 @@ Instructions on how to get an account have been sent by email.
 
 **If you already have, or have had in the past, an account on our systems, then please tell us your username, or email, and we will add you to the workshop. Do not create a new account**
 
-Cluster usage will be under the slurm reservation  ‘mrnaseq_workshop’
+Cluster usage will be under the slurm reservation  ‘rnaworkshop’
 
 ## Structure of the Workshops
 
