@@ -25,6 +25,7 @@ All posted times are **Pacific** time zone. At least one break will be provided 
 
 |:----------- |:------------------- |
 |**8:50 am**  | Zoom session starts |
+|**11:30 pm**  | Full length transcript sequencing talk by PacBio |
 |**5:00 pm** | Zoom session ends |
 
 ### Friday, June 30
