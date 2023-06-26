@@ -496,7 +496,6 @@ logcpm <- cpm(d, prior.count=2, log=TRUE)
 write.table(logcpm,"rnaseq_workshop_normalized_counts.txt",sep="\t",quote=F)
 ```
 
-
 ## Quiz 2
 
 <div id="quiz2" class="quiz"></div>
@@ -826,38 +825,6 @@ head(top.table, 50)
 
 ENSMUSG00000030203.18 has higher expression at WT NC than at WT C (logFC is negative).  ENSMUSG00000026193.16 has higher expression at WT C than at WT NC (logFC is positive).
 
-In the paper, the authors specify that NC cells were identified by low expression of Ly6C (which is now called Ly6c1 or ENSMUSG00000079018.11).  Is this gene differentially expressed?
-
-```r
-top.table["ENSMUSG00000079018.11",]
-```
-
-<div class='r_output'>    logFC AveExpr  t P.Value adj.P.Val  B
- NA    NA      NA NA      NA        NA NA
-</div>
-```r
-d0$counts["ENSMUSG00000079018.11",]
-```
-
-<div class='r_output'>        mouse_110_WT_C       mouse_110_WT_NC        mouse_148_WT_C 
-                     2                     0                     2 
-       mouse_148_WT_NC        mouse_158_WT_C       mouse_158_WT_NC 
-                     0                     2                     0 
-  mouse_183_KOMIR150_C mouse_183_KOMIR150_NC  mouse_198_KOMIR150_C 
-                     1                     0                     1 
- mouse_198_KOMIR150_NC  mouse_206_KOMIR150_C mouse_206_KOMIR150_NC 
-                     0                     1                     0 
-   mouse_2670_KOTet3_C  mouse_2670_KOTet3_NC   mouse_7530_KOTet3_C 
-                     2                     0                     2 
-  mouse_7530_KOTet3_NC   mouse_7531_KOTet3_C      mouse_7532_WT_NC 
-                     0                     1                     0 
-       mouse_H510_WT_C      mouse_H510_WT_NC       mouse_H514_WT_C 
-                     1                     0                     2 
-      mouse_H514_WT_NC 
-                     0
-</div>
-Ly6c1 was removed from our data by the filtering step, because the maximum counts for the gene did not exceed 2.
-
 ## 9. Write top.table to a file, adding in cpms and annotation
 
 ```r
@@ -1046,6 +1013,7 @@ myQuestions3 = [
 buildQuiz(myQuestions3, quizContainer3);
 submitButton3.addEventListener('click', function() {showResults(myQuestions3, quizContainer3, resultsContainer3);});
 </script>
+
 
 # Linear models and contrasts
 
@@ -1585,7 +1553,7 @@ slope <- coef(fit)["ENSMUSG00000056054.10", "pH"]
 abline(a = intercept, b = slope)
 ```
 
-![](DE_Analysis_mm_with_quizzes_files/figure-html/unnamed-chunk-15-1.png)<!-- -->
+![](DE_Analysis_mm_with_quizzes_files/figure-html/unnamed-chunk-14-1.png)<!-- -->
 
 ```r
 slope
@@ -1617,7 +1585,7 @@ In limma, the &beta;'s are the log fold changes.
 The error (residual) term &epsilon; is assumed to be normally distributed with a variance that is constant across the range of the data.
 
 Normally distributed means the residuals come from a distribution that looks like this:
-![](DE_Analysis_mm_with_quizzes_files/figure-html/unnamed-chunk-16-1.png)<!-- -->
+![](DE_Analysis_mm_with_quizzes_files/figure-html/unnamed-chunk-15-1.png)<!-- -->
 
 The log2 transformation that voom applies to the counts makes the data "normal enough", but doesn't completely stabilize the variance:
 
@@ -1630,7 +1598,7 @@ tmp <- voom(d, mm, plot = T)
 </div>
 <div class='r_output'> Warning: Partial NA coefficients for 11512 probe(s)
 </div>
-![](DE_Analysis_mm_with_quizzes_files/figure-html/unnamed-chunk-17-1.png)<!-- -->
+![](DE_Analysis_mm_with_quizzes_files/figure-html/unnamed-chunk-16-1.png)<!-- -->
 
 The log2 counts per million are more variable at lower expression levels.  The variance weights calculated by voom address this situation.
 
@@ -1678,7 +1646,7 @@ top.table <- topTable(fit2, coef = 1, sort.by = "P", n = 40)
 volcanoplot(fit2, coef=1, highlight=8, names=rownames(fit2), main="Genotype KOMIR150 vs. WT for cell type C", cex.main = 0.8)
 ```
 
-![](DE_Analysis_mm_with_quizzes_files/figure-html/unnamed-chunk-19-1.png)<!-- -->
+![](DE_Analysis_mm_with_quizzes_files/figure-html/unnamed-chunk-18-1.png)<!-- -->
 
 ```r
 head(anno[match(rownames(fit2), anno$Gene.stable.ID.version),
@@ -1704,7 +1672,7 @@ identical(anno[match(rownames(fit2), anno$Gene.stable.ID.version),
 volcanoplot(fit2, coef=1, highlight=8, names=anno[match(rownames(fit2), anno$Gene.stable.ID.version), "Gene.name"], main="Genotype KOMIR150 vs. WT for cell type C", cex.main = 0.8)
 ```
 
-![](DE_Analysis_mm_with_quizzes_files/figure-html/unnamed-chunk-19-2.png)<!-- -->
+![](DE_Analysis_mm_with_quizzes_files/figure-html/unnamed-chunk-18-2.png)<!-- -->
 
 ## Heatmap
 
@@ -1713,7 +1681,7 @@ volcanoplot(fit2, coef=1, highlight=8, names=anno[match(rownames(fit2), anno$Gen
 heatmap.2(logcpm[rownames(top.table),],col=brewer.pal(11,"RdBu"),scale="row", trace="none")
 ```
 
-![](DE_Analysis_mm_with_quizzes_files/figure-html/unnamed-chunk-20-1.png)<!-- -->
+![](DE_Analysis_mm_with_quizzes_files/figure-html/unnamed-chunk-19-1.png)<!-- -->
 
 ```r
 anno[match(rownames(top.table), anno$Gene.stable.ID.version),
@@ -1772,7 +1740,7 @@ identical(anno[match(rownames(top.table), anno$Gene.stable.ID.version), "Gene.st
 heatmap.2(logcpm[rownames(top.table),],col=brewer.pal(11,"RdBu"),scale="row", trace="none", labRow = anno[match(rownames(top.table), anno$Gene.stable.ID.version), "Gene.name"])
 ```
 
-![](DE_Analysis_mm_with_quizzes_files/figure-html/unnamed-chunk-20-2.png)<!-- -->
+![](DE_Analysis_mm_with_quizzes_files/figure-html/unnamed-chunk-19-2.png)<!-- -->
 
 ## 2 factor venn diagram
 
@@ -1805,7 +1773,7 @@ results <- decideTests(fit2)
 vennDiagram(results, names = c("C", "NC"), main = "DE Genes Between KOMIR150 and WT by Cell Type", cex.main = 0.8)
 ```
 
-![](DE_Analysis_mm_with_quizzes_files/figure-html/unnamed-chunk-21-1.png)<!-- -->
+![](DE_Analysis_mm_with_quizzes_files/figure-html/unnamed-chunk-20-1.png)<!-- -->
 
 ## Download the Enrichment Analysis R Markdown document
 
