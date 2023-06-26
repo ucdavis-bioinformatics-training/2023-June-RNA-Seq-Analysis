@@ -199,7 +199,7 @@ What does stranded and unstranded mean? Which is better and why? [Stranded vs Un
     module load star/2.7.10a
     STAR \
     --runThreadN 12 \
-       --genomeDir ../References/star.overlap100.gencode.M32 \
+       --genomeDir /share/workshop/mrnaseq_workshop/Data/star.overlap100.gencode.M32 \
        --outSAMtype BAM SortedByCoordinate \
        --quantMode GeneCounts \
        --outFileNamePrefix mouse_110_WT_C.htstream_ \
@@ -349,7 +349,7 @@ What does stranded and unstranded mean? Which is better and why? [Stranded vs Un
     echo "My SLURM_ARRAY_TASK_ID: " $SLURM_ARRAY_TASK_ID
 
     sample=`sed "${SLURM_ARRAY_TASK_ID}q;d" samples.txt`
-    REF="References/star.overlap100.gencode.M32"
+    REF="/share/workshop/mrnaseq_workshop/Data/star.overlap100.gencode.M32"
 
     outpath='02-STAR_alignment'
     [[ -d ${outpath} ]] || mkdir ${outpath}

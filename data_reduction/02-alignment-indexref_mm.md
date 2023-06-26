@@ -121,6 +121,5 @@
     **IF For the sake of time, or for some reason it didn't finish, is corrupted, or you missed the session, you can link over a completed copy.** If the indexing job is still running, it should be canceled first.
 
     ```bash
-    rm -rf /share/workshop/mrnaseq_workshop/$USER/rnaseq_example/References/star.overlap100.gencode.M32
-    cp -r /share/biocore/workshops/2022_mRNASeq/References/star.overlap100.gencode.M32 /share/workshop/mrnaseq_workshop/$USER/rnaseq_example/References/.
+    ln -s /share/workshop/mrnaseq_workshop/Data/star.overlap100.gencode.M32
     ```
