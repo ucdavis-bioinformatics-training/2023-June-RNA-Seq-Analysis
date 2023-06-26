@@ -261,14 +261,6 @@ Columns are
 
 ENSMUSG00000030203.18 has higher expression at WT NC than at WT C (logFC is negative).  ENSMUSG00000026193.16 has higher expression at WT C than at WT NC (logFC is positive).
 
-In the paper, the authors specify that NC cells were identified by low expression of Ly6C (which is now called Ly6c1 or ENSMUSG00000079018.11).  Is this gene differentially expressed?
-```{r}
-top.table["ENSMUSG00000079018.11",]
-d0$counts["ENSMUSG00000079018.11",]
-```
-
-Ly6c1 was removed from our data by the filtering step, because the maximum counts for the gene did not exceed 2.
-
 ## 9. Write top.table to a file, adding in cpms and annotation
 ```{r}
 top.table$Gene <- rownames(top.table)

@@ -139,7 +139,7 @@ d0 <- DGEList(counts)
   
 **1a\.** Read in Annotation
 ```{r read_annotation}
-anno <- read.delim("ensembl_mm_109.txt", as.is = TRUE)
+anno <- read.delim("ensembl_mm_109.txt",as.is=T)
 dim(anno)
 head(anno)
 tail(anno)
@@ -291,7 +291,6 @@ logcpm <- cpm(d, prior.count=2, log=TRUE)
 write.table(logcpm,"rnaseq_workshop_normalized_counts.txt",sep="\t",quote=F)
 ```
 
-
 ## Quiz 2
 
 <div id="quiz2" class="quiz"></div>
@@ -439,14 +438,6 @@ Columns are
 
 ENSMUSG00000030203.18 has higher expression at WT NC than at WT C (logFC is negative).  ENSMUSG00000026193.16 has higher expression at WT C than at WT NC (logFC is positive).
 
-In the paper, the authors specify that NC cells were identified by low expression of Ly6C (which is now called Ly6c1 or ENSMUSG00000079018.11).  Is this gene differentially expressed?
-```{r}
-top.table["ENSMUSG00000079018.11",]
-d0$counts["ENSMUSG00000079018.11",]
-```
-
-Ly6c1 was removed from our data by the filtering step, because the maximum counts for the gene did not exceed 2.
-
 ## 9. Write top.table to a file, adding in cpms and annotation
 ```{r}
 top.table$Gene <- rownames(top.table)
@@ -518,6 +509,7 @@ myQuestions3 = [
 buildQuiz(myQuestions3, quizContainer3);
 submitButton3.addEventListener('click', function() {showResults(myQuestions3, quizContainer3, resultsContainer3);});
 </script>
+
 
 # Linear models and contrasts
 
