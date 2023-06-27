@@ -25,7 +25,7 @@
 1. We are going to use an aligner called ['STAR'](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3530905/) to align the data. Lets take a look at the help docs for star:
 
     ```bash
-    module load star
+    module load star/2.7.10a
     STAR -h
     ```
 
