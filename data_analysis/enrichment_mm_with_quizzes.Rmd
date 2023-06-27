@@ -80,16 +80,17 @@ function showResults(myq, qc, rc){
 </script>
 
 
-
 # GO AND KEGG Enrichment Analysis
 
 Load libraries
-```{r}
+```{r, message = FALSE}
 library(topGO)
-library(KEGGREST)
 library(org.Mm.eg.db)
+library(clusterProfiler)
 library(pathview)
+library(enrichplot)
 library(ggplot2)
+library(dplyr)
 ```
 
 Files for examples were created in the DE analysis.
@@ -110,11 +111,17 @@ Our first example uses Kolmogorov-Smirnov Testing for enrichment testing of our 
 The first step in each topGO analysis is to create a topGOdata object.  This contains the genes, the score for each gene (here we use the p-value from the DE test), the GO terms associated with each gene, and the ontology to be used (here we use the biological process ontology)
 ```{r}
 infile <- "WT.C_v_WT.NC.txt"
-tmp <- read.delim(infile)
+DE <- read.delim(infile)
 
-geneList <- tmp$P.Value
-xx <- as.list(org.Mm.egENSEMBL2EG)
-names(geneList) <- xx[sapply(strsplit(tmp$Gene,split="\\."),"[[", 1L)]
+## Add entrezgene IDs to top table
+tmp <- bitr(DE$Gene.stable.ID, fromType = "ENSEMBL", toType = "ENTREZID", OrgDb = org.Mm.eg.db)
+id.conv <- subset(tmp, !duplicated(tmp$ENSEMBL))
+DE <- left_join(DE, id.conv, by = c("Gene.stable.ID" = "ENSEMBL"))
+
+# Make gene list
+DE.nodupENTREZ <- subset(DE, !is.na(ENTREZID) & !duplicated(ENTREZID))
+geneList <- DE.nodupENTREZ$P.Value
+names(geneList) <- DE.nodupENTREZ$ENTREZID
 head(geneList)
 
 # Create topGOData object
@@ -145,41 +152,41 @@ head(tab, 15)
 
 The Kolmogorov-Smirnov test directly compares two probability distributions based on their maximum distance.  
 
-To illustrate the KS test, we plot probability distributions of p-values that are and that are not annotated with the term GO:0046661 "male sex differentiation" (66 genes) p-value 0.8721.  (This won't exactly match what topGO does due to their elimination algorithm):
+To illustrate the KS test, we plot probability distributions of p-values that are and that are not annotated with the term GO:0010556 "regulation of macromolecule biosynthetic process" (2344 genes) p-value 1.00.  (This won't exactly match what topGO does due to their elimination algorithm):
 
 ```{r}
-rna.pp.terms <- genesInTerm(GOdata)[["GO:0046661"]] # get genes associated with term
+rna.pp.terms <- genesInTerm(GOdata)[["GO:0010556"]] # get genes associated with term
 p.values.in <- geneList[names(geneList) %in% rna.pp.terms]
 p.values.out <- geneList[!(names(geneList) %in% rna.pp.terms)]
 plot.ecdf(p.values.in, verticals = T, do.points = F, col = "red", lwd = 2, xlim = c(0,1),
-          main = "Empirical Distribution of DE P-Values by Annotation with 'male sex differentiation'",
-          cex.main = 0.9, xlab = "p", ylab = "Probabilty(P-Value < p)")
+          main = "Empirical Distribution of DE P-Values by Annotation with 'regulation of macromolecule biosynthetic process'",
+          cex.main = 0.9, xlab = "p", ylab = "Probability(P-Value <= p)")
 ecdf.out <- ecdf(p.values.out)
 xx <- unique(sort(c(seq(0, 1, length = 201), knots(ecdf.out))))
 lines(xx, ecdf.out(xx), col = "black", lwd = 2)
-legend("bottomright", legend = c("Genes Annotated with 'male sex differentiation'", "Genes not annotated with male sex differentiation'"), lwd = 2, col = 2:1, cex = 0.9)
+legend("bottomright", legend = c("Genes Annotated with 'regulation of macromolecule biosynthetic process'", "Genes not annotated with 'regulation of macromolecule biosynthetic process'"), lwd = 2, col = 2:1, cex = 0.9)
 ```
 
-versus the probability distributions of p-values that are and that are not annotated with the term GO:0007229 "integrin-mediated signaling pathway" (66 genes) p-value 9.8x10-5.
+versus the probability distributions of p-values that are and that are not annotated with the term GO:0045071 "negative regulation of viral genome replication" (54 genes) p-value 3.3x10-9.
 
 ```{r}
-rna.pp.terms <- genesInTerm(GOdata)[["GO:0007229"]] # get genes associated with term
+rna.pp.terms <- genesInTerm(GOdata)[["GO:0045071"]] # get genes associated with term
 p.values.in <- geneList[names(geneList) %in% rna.pp.terms]
 p.values.out <- geneList[!(names(geneList) %in% rna.pp.terms)]
 plot.ecdf(p.values.in, verticals = T, do.points = F, col = "red", lwd = 2, xlim = c(0,1),
-          main = "Empirical Distribution of DE P-Values by Annotation with 'integrin-mediated signaling pathway'",
-          cex.main = 0.9, xlab = "p", ylab = "Probabilty(P-Value < p)")
+          main = "Empirical Distribution of DE P-Values by Annotation with 'negative regulation of viral genome replication'",
+          cex.main = 0.9, xlab = "p", ylab = "Probability(P-Value <= p)")
 ecdf.out <- ecdf(p.values.out)
 xx <- unique(sort(c(seq(0, 1, length = 201), knots(ecdf.out))))
 lines(xx, ecdf.out(xx), col = "black", lwd = 2)
-legend("bottomright", legend = c("Genes Annotated with 'integrin-mediated signaling pathway'", "Genes Not Annotated with 'integrin-mediated signaling pathway'"), lwd = 2, col = 2:1, cex = 0.9)
+legend("bottomright", legend = c("Genes Annotated with 'negative regulation of viral genome replication'", "Genes Not Annotated with 'negative regulation of viral genome replication'"), lwd = 2, col = 2:1, cex = 0.9)
 ```
 
 
-We can use the function showSigOfNodes to plot the GO graph for the 3 most significant terms and their parents, color coded by enrichment p-value (red is most significant):
+We can use the function showSigOfNodes to plot the GO graph for the 2 most significant terms and their parents, color coded by enrichment p-value (red is most significant):
 ```{r, fig.width = 20, fig.height = 20}
 par(cex = 0.3)
-showSigOfNodes(GOdata, score(resultKS), firstSigNodes = 2, useInfo = "def")
+showSigOfNodes(GOdata, score(resultKS), firstSigNodes = 2, useInfo = "def", .NO.CHAR = 40)
 par(cex = 1)
 ```
 
@@ -222,7 +229,7 @@ Advantages over KS (or Wilcoxon) Tests:
 
 * Ease of interpretation
 
-* Easier directional testing
+* Can be applied when you just have a gene list without associated p-values, etc.
 
 Disadvantages:
 
@@ -260,10 +267,10 @@ myQuestions1 = [
     correctAnswer: "c"
   },
   {
-      question: "Based on the graph above generated by showSigOfNodes, what is one parent term of 'innate immune response'?",
+      question: "Based on the graph above generated by showSigOfNodes, what is one parent term of 'negative regulation of viral genome replication'?",
     answers: {
       a: "metabolic process",
-      b: "defense response to other",
+      b: "regulation of viral genome replication",
       c: "angiogenesis"
     },
     correctAnswer: "b"
@@ -274,94 +281,81 @@ buildQuiz(myQuestions1, quizContainer1);
 submitButton1.addEventListener('click', function() {showResults(myQuestions1, quizContainer1, resultsContainer1);});
 </script>
 
+## KEGG Pathway Enrichment Testing With clusterProfiler
 
-## KEGG Pathway Enrichment Testing With KEGGREST
 KEGG, the Kyoto Encyclopedia of Genes and Genomes (https://www.genome.jp/kegg/), provides assignment of genes for many organisms into pathways.
 
-We will access KEGG pathway assignments for mouse through the KEGGREST Bioconductor package, and then use some homebrew code for enrichment testing.
+We will conduct KEGG enrichment testing using the Bioconductor package [clusterProfiler](https://doi.org/10.1016/j.xinn.2021.100141). clusterProfiler implements the algorithm used by [GSEA](https://www.gsea-msigdb.org/gsea/index.jsp).
 
-**1\.** Get all mouse pathways and their genes:
+Cluster profiler can do much more than KEGG enrichment, check out the [clusterProfiler book](https://yulab-smu.top/biomedical-knowledge-mining-book/index.html).
+
+We will base our KEGG enrichment analysis on the t statistics from differential expression, which allows for directional testing.
+
 ```{r}
-# Pull all pathways for mmu
-pathways.list <- keggList("pathway", "mmu")
-head(pathways.list)
-
-# Pull all genes for each pathway
-pathway.codes <- sub("path:", "", names(pathways.list))
-genes.by.pathway <- sapply(pathway.codes,
-	function(pwid){
-		pw <- keggGet(pwid)
-		if (is.null(pw[[1]]$GENE)) return(NA)
-		pw2 <- pw[[1]]$GENE[c(TRUE,FALSE)] # may need to modify this to c(FALSE, TRUE) for other organisms
-		pw2 <- unlist(lapply(strsplit(pw2, split = ";", fixed = T), function(x)x[1]))
-		return(pw2)
-	}
-)
-head(genes.by.pathway)
+geneList.KEGG <- DE.nodupENTREZ$t                   
+geneList.KEGG <- sort(geneList.KEGG, decreasing = TRUE)
+names(geneList.KEGG) <- DE.nodupENTREZ$ENTREZID
+head(geneList.KEGG)
 ```
-
-Read in DE file to be used in enrichment testing:
-```{r}
-head(geneList)
-```
-
-**2\.** Apply Wilcoxon rank-sum test to each pathway, testing if "in" p-values are smaller than "out" p-values:
-```{r}
-# Wilcoxon test for each pathway
-pVals.by.pathway <- t(sapply(names(genes.by.pathway),
-	function(pathway) {
-		pathway.genes <- genes.by.pathway[[pathway]]
-		list.genes.in.pathway <- intersect(names(geneList), pathway.genes)
-		list.genes.not.in.pathway <- setdiff(names(geneList), list.genes.in.pathway)
-		scores.in.pathway <- geneList[list.genes.in.pathway]
-		scores.not.in.pathway <- geneList[list.genes.not.in.pathway]
-		if (length(scores.in.pathway) > 0){
-			p.value <- wilcox.test(scores.in.pathway, scores.not.in.pathway, alternative = "less")$p.value
-		} else{
-			p.value <- NA
-		}
-		return(c(p.value = p.value, Annotated = length(list.genes.in.pathway)))
-	}
-))
-
-# Assemble output table
-outdat <- data.frame(pathway.code = rownames(pVals.by.pathway))
-outdat$pathway.name <- pathways.list[paste0("path:",outdat$pathway.code)]
-outdat$p.value <- pVals.by.pathway[,"p.value"]
-outdat$Annotated <- pVals.by.pathway[,"Annotated"]
-outdat <- outdat[order(outdat$p.value),]
+```{r, warning = FALSE}
+KEGG.results <- gseKEGG(gene = geneList.KEGG, organism = "mmu", pvalueCutoff = 1)
+KEGG.results <- setReadable(KEGG.results, OrgDb = "org.Mm.eg.db", keyType = "ENTREZID")
+outdat <- as.data.frame(KEGG.results)
 head(outdat)
 ```
-* p.value: P-value for Wilcoxon rank-sum testing, testing that p-values from DE analysis for genes in the pathway are smaller than those not in the pathway
-* Annotated: Number of genes in the pathway (regardless of DE p-value)
 
-The Wilcoxon rank-sum test is the nonparametric analogue of the two-sample t-test.  It compares the ranks of observations in two groups.  It is more powerful than the Kolmogorov-Smirnov test.
+Gene set enrichment analysis output includes the following columns:
 
-**3\.** Plotting Pathways
+* setSize: Number of genes in pathway
+
+* enrichmentScore: [GSEA enrichment score](https://www.gsea-msigdb.org/gsea/doc/GSEAUserGuideTEXT.htm#_Enrichment_Score_(ES)), a statistic reflecting the degree to which a pathway is overrepresented at the top or bottom of the gene list (the gene list here consists of the t-statistics from the DE test).
+
+* NES: [Normalized enrichment score](https://www.gsea-msigdb.org/gsea/doc/GSEAUserGuideTEXT.htm#_Normalized_Enrichment_Score)
+
+* pvalue: Raw p-value from permutation test of enrichment score
+
+* p.adjust: Benjamini-Hochberg false discovery rate adjusted p-value
+
+* qvalue: Storey false discovery rate adjusted p-value 
+
+* rank: Position in ranked list at which maximum enrichment score occurred
+
+* leading_edge: [Statistics from leading edge analysis](https://www.gsea-msigdb.org/gsea/doc/GSEAUserGuideTEXT.htm#_Detailed_Enrichment_Results)
+
+### Dotplot of enrichment results
+Gene.ratio = (count of core enrichment genes)/(count of pathway genes)
+
+Core enrichment genes = subset of genes that contribute most to the enrichment result ("leading edge subset")
+
+```{r, fig.height = 6}
+dotplot(KEGG.results)
+```
+
+### Pathview plot of log fold changes on KEGG diagram
+
 ```{r}
-foldChangeList <- tmp$logFC
+foldChangeList <- DE$logFC
 xx <- as.list(org.Mm.egENSEMBL2EG)
-names(foldChangeList) <- xx[sapply(strsplit(tmp$Gene,split="\\."),"[[", 1L)]
+names(foldChangeList) <- xx[sapply(strsplit(DE$Gene,split="\\."),"[[", 1L)]
 head(foldChangeList)
 
-mmu04380 <- pathview(gene.data  = foldChangeList,
-                     pathway.id = "mmu04380",
+mmu04015 <- pathview(gene.data  = foldChangeList,
+                     pathway.id = "mmu04015",
                      species    = "mmu",
                      limit      = list(gene=max(abs(foldChangeList)), cpd=1))
 ```
 
-![](mmu04380.pathview.png)
+![](mmu04015.pathview.png)
 
 ### Barplot of p-values for top pathways
-A barplot of -log10(p-value) for the top pathways can be used for any type of enrichment analysis.
+A barplot of -log10(p-value) for the top pathways/terms can be used for any type of enrichment analysis.
 
 ```{r}
 plotdat <- outdat[1:10,]
-plotdat$nice.name <- gsub(" - Mus musculus (house mouse)", "", plotdat$pathway.name, fixed = TRUE)
+plotdat$nice.name <- gsub(" - Mus musculus (house mouse)", "", plotdat$Description, fixed = TRUE)
 
-ggplot(plotdat, aes(x = -log10(p.value), y = reorder(nice.name, -log10(p.value)), fill = Annotated)) + geom_bar(stat = "identity") + labs(x = "-log10(P-Value)", y = NULL, fill = "# Genes") + scale_fill_gradient(low = "red", high = "blue")
+ggplot(plotdat, aes(x = -log10(p.adjust), y = reorder(nice.name, -log10(p.adjust)), fill = setSize)) + geom_bar(stat = "identity") + labs(x = "-log10(P-Value)", y = NULL, fill = "# Genes") + scale_fill_gradient(low = "red", high = "blue")
 ```
-
 ## Quiz 2
 
 <div id="quiz2" class="quiz"></div>
@@ -374,20 +368,20 @@ submitButton2 = document.getElementById('submit2');
 
 myQuestions2 = [
   {
-    question: "How many pathways have a p-value less than 0.05?",
+    question: "How many pathways have an adjusted p-value less than 0.05?",
     answers: {
-      a: "`r length(which(outdat$p.value < 0.05))`",
+      a: "`r length(which(outdat$p.adjust < 0.05))`",
       b: "`r nrow(outdat)`",
-      c: "`r length(which(outdat$p.value < 0.1))`"
+      c: "`r length(which(outdat$p.adjust < 0.1))`"
     },
     correctAnswer: "a"
   },
   {
-      question: "Which pathway has the most genes annotated to it (excluding genes not in the top table)?'",
+      question: "Which pathway has the most genes annotated to it?'",
     answers: {
-      a: "`r outdat$pathway.name[1]`",
-      b: "`r outdat$pathway.name[which.min(outdat$Annotated)]`",
-      c: "`r outdat$pathway.name[which.max(outdat$Annotated)]`"
+      a: "`r outdat$Description[1]`",
+      b: "`r outdat$Description[which.min(outdat$setSize)]`",
+      c: "`r outdat$Description[which.max(outdat$setSize)]`"
     },
     correctAnswer: "c"
   },
@@ -396,14 +390,6 @@ myQuestions2 = [
     answers: {
       a: "Positive",
       b: "Negative"
-    },
-    correctAnswer: "b"
-  },
-{
-      question: "This study predates the discovery of COVID-19 in humans by at least a year, yet 'Coronavirus disease - COVID-19' is the most significantly enriched pathway.  What is the most likely explanation?",
-    answers: {
-      a: "COVID-19 originated in these mice",
-      b: "Genes associated with COVID-19 infection also happen to be associated with nonclassical monocytes"
     },
     correctAnswer: "b"
   }
