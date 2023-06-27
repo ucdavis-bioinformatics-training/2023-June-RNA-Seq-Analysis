@@ -6,7 +6,7 @@
 
 <div id="banner" style="overflow: hidden; display: flex; justify-content:space-around;">
 <img src="https://raw.githubusercontent.com/ucdavis-bioinformatics-training/2023-June-RNA-Seq-Analysis/master/data_reduction/filetypes_figures/tagseq2.png" alt="tagseq_protocol" width="40%"/>
-<img src="https://raw.githubusercontent.com/ucdavis-bioinformatics-training/2023-June-RNA-Seq-Analysis/master/data_reduction/filetypes_figures/tagseq3.png" alt="tagseq_protocol_umi" width="40%"/>
+<img src="https://raw.githubusercontent.com/ucdavis-bioinformatics-training/2023-June-RNA-Seq-Analysis/master/data_reduction/filetypes_figures/tagseq3.png" alt="tagseq_protocol_umi" width="30%"/>
 </div>
 
 <p align = "right" style="font-family:Times;font-size:12px;">
