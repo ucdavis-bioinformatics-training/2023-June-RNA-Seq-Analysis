@@ -236,7 +236,7 @@ What does stranded and unstranded mean? Which is better and why? [Stranded vs Un
     **IF for some reason it didn't finish, is corrupted or you missed the session, you can copy over a completed copy.**
 
     ```bash
-    cp /share/biocore/workshops/2022_mRNASeq/HTS_testing/mouse_110_WT_C.htstream_Aligned.sortedByCoord.out.bam* /share/workshop/mrnaseq_workshop/$USER/rnaseq_example/HTS_testing
+    cp /share/biocore/workshops/2023-June-mRNASeq/HTS_testing/mouse_110_WT_C.htstream_Aligned.sortedByCoord.out.bam* /share/workshop/mrnaseq_workshop/$USER/rnaseq_example/HTS_testing
     ```
 
 2. Transfer mouse_110_WT_C.htstream_Aligned.sortedByCoord.out.bam and mouse_110_WT_C.htstream_Aligned.sortedByCoord.out.bam.bai (the index file) to your computer using scp,FileZilla or winSCP.

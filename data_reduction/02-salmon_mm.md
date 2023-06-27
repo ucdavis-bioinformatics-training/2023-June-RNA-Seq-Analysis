@@ -3,8 +3,8 @@
 *This document assumes [preproc htstream](./preproc_htstream.md) has been completed.*
 **IF** for some reason it didn't finish, is corrupted or you missed the session, you can link over a completed copy
 ```
-cp -r /share/biocore/workshops/2022_mRNASeq/HTS_testing /share/workshop/mrnaseq_workshop/$USER/rnaseq_example/.
-ln -s /share/biocore/workshops/2022_mRNASeq/01-HTS_Preproc /share/workshop/mrnaseq_workshop/$USER/rnaseq_example/.
+cp -r /share/biocore/workshops/2023-June-mRNASeq/HTS_testing /share/workshop/mrnaseq_workshop/$USER/rnaseq_example/.
+ln -s /share/biocore/workshops/2023-June-mRNASeq/01-HTS_Preproc /share/workshop/mrnaseq_workshop/$USER/rnaseq_example/.
 ```
 
 ## Salmon Aligner
@@ -66,12 +66,12 @@ ln -s /share/biocore/workshops/2022_mRNASeq/01-HTS_Preproc /share/workshop/mrnas
     mkdir -p ${outpath}
     cd ${outpath}
 
-    wget https://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_mouse/release_M32/gencode.vM32.transcripts.fa.gz
-    zcat gencode.vM32.pc_transcripts.fa.gz |cat - GRCm39.primary_assembly.genome.fa > decoy.aware.gencode.vM32.transcripts.fa
-    grep "^>" GRCm39.primary_assembly.genome.fa |cut -d " " -f 1 > decoys.txt
+    #wget https://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_mouse/release_M32/gencode.vM32.transcripts.fa.gz
+    #zcat gencode.vM32.pc_transcripts.fa.gz |cat - GRCm39.primary_assembly.genome.fa > decoy.aware.gencode.vM32.transcripts.fa
+    grep "^>" /share/workshop/mrnaseq_workshop/Data/GRCm39.primary_assembly.genome.fa |cut -d " " -f 1 > decoys.txt
     sed -i -e 's/>//g' decoys.txt
 
-    TP_FASTA="gencode.vM32.pc_transcripts.fa"
+    TP_FASTA="/share/workshop/mranseq_workshop/Data/decoy.aware.gencode.vM32.transcripts.fa"
     INDEX="salmon_gencode.vM32.index"
 
     module load salmon
@@ -103,7 +103,7 @@ ln -s /share/biocore/workshops/2022_mRNASeq/01-HTS_Preproc /share/workshop/mrnas
     **IF for some reason it didn't finish, is corrupted, or you missed the session, you can _link_ over a completed copy.**
 
     ```bash
-    ln -s /share/biocore/workshops/2022_mRNASeq/References/salmon_gencode.vM32.index /share/workshop/mrnaseq_workshop/$USER/rnaseq_example/References/.
+    ln -s /share/workshop/mrnaseq_workshop/Data/salmon_gencode.vM32.index /share/workshop/mrnaseq_workshop/$USER/rnaseq_example/References/.
     ```
 ## Alignments
 
