@@ -32,7 +32,7 @@ All posted times are **Pacific** time zone. At least one break will be provided 
 
 |:----------- |:------------------- |
 |**8:50 am**  | Zoom session starts |
-|**11:30 am**  | Single cell RNASeq technologies talk by 10X |
+|**11:00 am**  | Single cell RNASeq technologies talk by 10X |
 |**5:00 pm** | Zoom session ends |
 
 ## Workshop blocks
