@@ -345,7 +345,10 @@ mmu04015 <- pathview(gene.data  = foldChangeList,
                      limit      = list(gene=max(abs(foldChangeList)), cpd=1))
 ```
 
-![](mmu04015.pathview.png)
+```{r pressure, echo=FALSE, out.width = '100%'}
+knitr::include_graphics("mmu04015.pathview.png")
+```
+
 
 ### Barplot of p-values for top pathways
 A barplot of -log10(p-value) for the top pathways/terms can be used for any type of enrichment analysis.

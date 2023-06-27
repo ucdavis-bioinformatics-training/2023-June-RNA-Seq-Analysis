@@ -596,38 +596,38 @@ head(outdat)
 <div class='r_output'>                ID
  mmu04015 mmu04015
  mmu04380 mmu04380
- mmu04510 mmu04510
  mmu04520 mmu04520
- mmu04662 mmu04662
+ mmu04510 mmu04510
  mmu04810 mmu04810
+ mmu04662 mmu04662
                                                              Description setSize
  mmu04015            Rap1 signaling pathway - Mus musculus (house mouse)     125
  mmu04380        Osteoclast differentiation - Mus musculus (house mouse)     106
- mmu04510                    Focal adhesion - Mus musculus (house mouse)     124
  mmu04520                 Adherens junction - Mus musculus (house mouse)      63
- mmu04662 B cell receptor signaling pathway - Mus musculus (house mouse)      74
+ mmu04510                    Focal adhesion - Mus musculus (house mouse)     124
  mmu04810  Regulation of actin cytoskeleton - Mus musculus (house mouse)     142
+ mmu04662 B cell receptor signaling pathway - Mus musculus (house mouse)      74
           enrichmentScore      NES       pvalue     p.adjust       qvalue rank
- mmu04015       0.5534343 2.200088 7.929848e-09 2.505832e-06 1.519192e-06 1926
- mmu04380       0.5565518 2.175204 8.455461e-08 1.335963e-05 8.099442e-06 1990
- mmu04510       0.5038579 2.009006 6.763647e-07 7.124375e-05 4.319241e-05 1971
- mmu04520       0.6017661 2.158195 1.241444e-06 9.807408e-05 5.945864e-05 1508
- mmu04662       0.5687424 2.096528 4.230054e-06 2.227828e-04 1.350649e-04 1876
- mmu04810       0.4747548 1.923544 3.573692e-06 2.227828e-04 1.350649e-04 2045
+ mmu04015       0.5534343 2.212873 7.756372e-09 2.451014e-06 1.461464e-06 1926
+ mmu04380       0.5565518 2.174139 5.334233e-08 8.428087e-06 5.025409e-06 1990
+ mmu04520       0.6017661 2.162670 1.584975e-06 1.507577e-04 8.989217e-05 1508
+ mmu04510       0.5038579 2.014431 1.989649e-06 1.507577e-04 8.989217e-05 1971
+ mmu04810       0.4747548 1.938585 2.385407e-06 1.507577e-04 8.989217e-05 2045
+ mmu04662       0.5687424 2.081065 4.912709e-06 2.256045e-04 1.345210e-04 1876
                             leading_edge
  mmu04015 tags=45%, list=18%, signal=37%
  mmu04380 tags=41%, list=18%, signal=33%
- mmu04510 tags=40%, list=18%, signal=33%
  mmu04520 tags=38%, list=14%, signal=33%
- mmu04662 tags=43%, list=17%, signal=36%
+ mmu04510 tags=40%, list=18%, signal=33%
  mmu04810 tags=37%, list=19%, signal=31%
+ mmu04662 tags=43%, list=17%, signal=36%
                                                                                                                                                                                                                                                                                                                                  core_enrichment
  mmu04015 Plcb1/Sipa1l1/Met/Tiam1/Adcy7/Thbs1/Itgal/Itgb2/Itgb1/Calm1/Afdn/Raf1/Rassf5/Rap1b/Pdgfb/Gnaq/Vasp/Evl/Rasgrp2/Vegfc/Rras/Sipa1l3/Insr/Prkd2/Prkcb/P2ry1/Fpr1/Pfn1/Map2k1/Rapgef5/Actg1/Hgf/Rapgef1/Apbb1ip/Rhoa/Pik3cd/Rap1a/Csf1r/Tln1/Cdh1/Rac1/Kras/Akt1/Adora2a/Lcp2/Fgfr1/Adcy4/Crk/Mapk3/Itgb3/Pdgfrb/Ralb/Akt3/Fyb/Plcb3/Rgs14
  mmu04380                                                                       Pparg/Lilra6/Lilra5/Fyn/Fcgr4/Stat2/Pira11/Tgfbr1/Acp5/Sirpd/Pirb/Tyk2/Ncf1/Map3k14/Tgfbr2/Mitf/Pira2/Nfkb1/Spi1/Map2k1/Fcgr1/Socs3/Sqstm1/Pik3cd/Csf1r/Trem2/Pira1/Ppp3r1/Nfatc1/Pira6/Fos/Rac1/Akt1/Nfkbia/Lcp2/Mapk3/Itgb3/Gab2/Sirpb1a/Akt3/Chuk/Tab2/Ifngr1
- mmu04510                                              Fn1/Met/Fyn/Thbs1/Itga1/Bcl2/Itgb1/Ppp1cb/Ccnd2/Raf1/Rap1b/Pten/Pdgfb/Vasp/Vegfc/Col4a2/Vwf/Capn2/Parvg/Actn4/Flna/Prkcb/Itgav/Itga5/Parvb/Map2k1/Actg1/Hgf/Rapgef1/Rhoa/Pik3cd/Rap1a/Tln1/Rac1/Itgb5/Akt1/Itgb7/Bad/Crk/Mapk3/Itgb3/Pdgfrb/Ccnd1/Ilk/Col4a1/Akt3/Dock1/Itga4/Ppp1ca/Cav2
  mmu04520                                                                                                                                                                                            Met/Fyn/Ccm2/Tcf7l2/Afdn/Ptprj/Heg1/Rap1b/Tgfbr1/Ptpn6/Tgfbr2/Smad3/Insr/Actn4/Actg1/Iqgap1/Rhoa/Rap1a/Cdh1/Nectin4/Rac1/Smurf2/Fgfr1/Mapk3
- mmu04662                                                                                                                                         Lilra6/Lilra5/Pik3ap1/Nfatc3/Raf1/Cd81/Pira11/Pirb/Ptpn6/Cd79a/Pira2/Prkcb/Nfkb1/Cd22/Map2k1/Ifitm1/Pik3cd/Pira1/Cd19/Ppp3r1/Nfatc1/Pira6/Fos/Rac1/Kras/Akt1/Nfkbia/Mapk3/Blk/Nfkbie/Akt3/Chuk
+ mmu04510                                              Fn1/Met/Fyn/Thbs1/Itga1/Bcl2/Itgb1/Ppp1cb/Ccnd2/Raf1/Rap1b/Pten/Pdgfb/Vasp/Vegfc/Col4a2/Vwf/Capn2/Parvg/Actn4/Flna/Prkcb/Itgav/Itga5/Parvb/Map2k1/Actg1/Hgf/Rapgef1/Rhoa/Pik3cd/Rap1a/Tln1/Rac1/Itgb5/Akt1/Itgb7/Bad/Crk/Mapk3/Itgb3/Pdgfrb/Ccnd1/Ilk/Col4a1/Akt3/Dock1/Itga4/Ppp1ca/Cav2
  mmu04810             Spata13/Fn1/Cyfip2/Itgax/Tiam1/Iqgap2/Itgal/Itgb2/Itga1/Itgb1/Ppp1cb/Msn/Arhgef1/Raf1/Gsn/Pdgfb/Cxcr4/Rras/Ssh1/Actn4/Myh9/Itgav/Itga5/Pfn1/Map2k1/Actg1/Ssh2/Arhgef6/Iqgap1/Rhoa/Pik3cd/Pip4k2c/Rac1/Itgb5/Kras/Akt1/Itgb7/Fgfr1/Arpc5l/Crk/Mapk3/Itgb3/Fgd3/Pdgfrb/Pip4k2a/Araf/Akt3/Arpc5/Dock1/Itga4/Ppp1ca/Actr3/Vav3
+ mmu04662                                                                                                                                         Lilra6/Lilra5/Pik3ap1/Nfatc3/Raf1/Cd81/Pira11/Pirb/Ptpn6/Cd79a/Pira2/Prkcb/Nfkb1/Cd22/Map2k1/Ifitm1/Pik3cd/Pira1/Cd19/Ppp3r1/Nfatc1/Pira6/Fos/Rac1/Kras/Akt1/Nfkbia/Mapk3/Blk/Nfkbie/Akt3/Chuk
 </div>
 Gene set enrichment analysis output includes the following columns:
 
@@ -685,7 +685,8 @@ mmu04015 <- pathview(gene.data  = foldChangeList,
 </div>
 <div class='r_output'> Info: Writing image file mmu04015.pathview.png
 </div>
-![](mmu04015.pathview.png)
+<img src="mmu04015.pathview.png" width="100%" />
+
 
 ### Barplot of p-values for top pathways
 A barplot of -log10(p-value) for the top pathways/terms can be used for any type of enrichment analysis.
@@ -713,9 +714,9 @@ myQuestions2 = [
   {
     question: "How many pathways have an adjusted p-value less than 0.05?",
     answers: {
-      a: "96",
+      a: "98",
       b: "316",
-      c: "120"
+      c: "128"
     },
     correctAnswer: "a"
   },
