@@ -56,8 +56,8 @@
     #SBATCH --partition=production
     #SBATCH --reservation=rnaseq_workshop
     #SBATCH --account=workshop
-    #SBATCH --output=../slurmout/star-index_%A.out # File to which STDOUT will be written
-    #SBATCH --error=../slurmout/star-index_%A.err # File to which STDERR will be written
+    #SBATCH --output=slurmout/star-index_%A.out # File to which STDOUT will be written
+    #SBATCH --error=slurmout/star-index_%A.err # File to which STDERR will be written
     #SBATCH --mail-type=ALL
     #SBATCH --mail-user=myemail@email.com
 
