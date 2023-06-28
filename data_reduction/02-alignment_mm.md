@@ -283,7 +283,7 @@ What does stranded and unstranded mean? Which is better and why? [Stranded vs Un
 
     <img src="alignment_mm_figures/index_igv7.png" alt="index_igv7" width="80%" style="border:5px solid #ADD8E6;"/>
 
-1. Lets take a look at the alignment associated with the gene __Fn1__, and if for some reason it doesn't find HBB (web IGV can be fickle) go to position __chr1:71,610,633-71,628,073__. If you don't see any reads, this likely means your in the wrong genome, double check that it says **mm10** in the top left.
+1. Lets take a look at the alignment associated with the gene __Fn1__, and if for some reason it doesn't find HBB (web IGV can be fickle) go to position __chr1:71,610,633-71,628,073__. If you don't see any reads, this likely means your in the wrong genome, double check that it says **mm39** in the top left.
 
     <img src="alignment_mm_figures/index_igv8.png" alt="index_igv8" width="80%" style="border:5px solid #ADD8E6;"/>
 
