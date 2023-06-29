@@ -126,7 +126,7 @@ ln -s /share/biocore/workshops/2023-June-mRNASeq/01-HTS_Preproc /share/workshop/
     --index ../References/salmon_gencode.vM32.index \
         --libType A \
         --validateMappings \
-        --geneMap ../References/gencode.vM32.primary_assembly.annotation.gtf \
+        --geneMap ../References/gencode.vM32.primary_assembly.basic.annotation.gtf \
         --output mouse_110_WT_C.subset.salmon \
         -1 mouse_110_WT_C.subset_R1.fastq.gz \
         -2 mouse_110_WT_C.subset_R2.fastq.gz
