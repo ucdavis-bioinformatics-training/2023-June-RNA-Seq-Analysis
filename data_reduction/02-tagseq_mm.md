@@ -75,7 +75,7 @@ The data reduction steps involved in TagSeq analysis are very similar to regular
     
     echo "SAMPLE: ${sample}"
     
-    module load htstream/1.3.3
+    module load htstream/1.4.1
     module load anaconda3/4.9.2
     
     infile=`ls ${inpath} | grep ${sample}_`
@@ -87,8 +87,8 @@ The data reduction steps involved in TagSeq analysis are very similar to regular
             hts_SeqScreener -A ${outpath}/${sample}/${sample}.json -N 'screen phix' | \
             hts_SeqScreener -A ${outpath}/${sample}/${sample}.json -N 'count the number of rRNA reads'\
             -r -s References/mouse_rrna.fasta | \
-            ./extract_UMI_htstream.py --read 1 --length 6 | \
-            hts_CutTrim -a 16 -A ${outpath}/${sample}/${sample}.json -N 'trim first 16 bases' | \
+            hts_ExtractUMI -A ${outpath}/${sample}/${sample}.json -N 'extract UMI sequence' | \
+            hts_CutTrim -a 4 -A ${outpath}/${sample}/${sample}.json -N 'trim first 16 bases' | \
             hts_AdapterTrimmer -A ${outpath}/${sample}/${sample}.json -N 'trim adapters' | \
             hts_PolyATTrim --no-left --skip_polyT -A ${outpath}/${sample}/${sample}.json -N 'remove polyA' | \
             hts_QWindowTrim -A ${outpath}/${sample}/${sample}.json -N 'quality trim the ends of reads' | \
